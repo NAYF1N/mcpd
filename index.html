@@ -154,9 +154,42 @@ function calculateDifference() {
 }
 
 
+    // Array of words to check for in the URL
+    var wordsToCheck = ["default", "noah", "calvin"];
+
+    // Iterate through the array
+    for (var i = 0; i < wordsToCheck.length; i++) {
+      var word = wordsToCheck[i];
+
+      // Check if the URL contains the word preceded by "#"
+      if (window.location.href.includes("#" + word)) {
+        // Create a new script element
+        var script = document.createElement("script");
+
+        // Set the src attribute to the corresponding JavaScript file
+        script.src = "" + word + ".js";
+
+        // Append the script element to the HTML document
+        document.body.appendChild(script);
+      }
+    }
 
 
-        function setActiveSource(source) {
+
+function copyr() {
+  let textarea = document.getElementById("text-radar");
+  textarea.select();
+  document.execCommand("copy");
+}
+function copyl() {
+  let textarea = document.getElementById("text-lidar");
+  textarea.select();
+  document.execCommand("copy");
+}
+
+</script>
+<!--
+	        function setActiveSource(source) {
             // Reset the active styling for all links
             document.getElementById('link1').classList.remove('active-link');
             document.getElementById('link2').classList.remove('active-link');
@@ -173,28 +206,16 @@ function calculateDifference() {
             // Set the chosen source as active
             document.getElementById(source).setAttribute('active', '');
         }
-
-function copyr() {
-  let textarea = document.getElementById("text-radar");
-  textarea.select();
-  document.execCommand("copy");
-}
-function copyl() {
-  let textarea = document.getElementById("text-lidar");
-  textarea.select();
-  document.execCommand("copy");
-}
-
-</script>
-
+-->
 
 </head>
 <body onmouseover="update(); calculateDifference()"></body>
-	
+
+<!--
 <script src="default.js" type="text/javascript" id="default"></script>
 <script src="calvin.js" type="text/javascript" id="calvin"></script>
 <script src="noah.js" type="text/javascript" id="noah"></script>
-
+-->
 <!--https://www.tutorialspoint.com/online_html_editor.php-->
 
 <table>
@@ -303,9 +324,11 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 
 <br>
 
+<!--
 <a href="#" onclick="setActiveSource('default')" id="link1">Nate (Default)</a>  
 <a href="#" onclick="setActiveSource('calvin')" id="link2">Calvin</a>  
 <a href="#" onclick="setActiveSource('noah')" id="link3">Noah</a>
+-->
 
 <br><br>
 
