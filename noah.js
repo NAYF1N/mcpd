@@ -8,7 +8,7 @@ I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.val
   }
 ;
     {
-    document.querySelector("textarea.lidar").value = `The LiDAR passed an internal systems check when it powered on.
+    document.querySelector("textarea.lidar").value = `NOAH The LiDAR passed an internal systems check when it powered on.
 
 While sitting stationary, I observed a vehicle near ${locate.value} traveling ${observed.value}mph, in the ${os.value} lane relative to my position, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my LiDAR.
 
@@ -26,7 +26,7 @@ I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.val
   }
 ;
     {
-    document.querySelector("textarea.lidar").value = `The LiDAR passed an internal systems check when it powered on.
+    document.querySelector("textarea.lidar").value = `NOAH The LiDAR passed an internal systems check when it powered on.
 
 While sitting stationary, I observed a vehicle near ${locate.value} traveling ${observed.value}mph, in the ${os.value} lane relative to my position, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my LiDAR.
     
