@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<title>Speed Citation Template</title>
+<head>
+<style>
+body {
+	background-color:#222;
+	color:#fff;
+	line-height:1.4;
+	text-align:center;
+	font-size:12pt;
+	font-family:Calibri;
+}
+
+a {
+   color:#f88; 
+}
+
+a:hover {
+    color:#666;
+}
+
+/*.table-form, .table-bs {
+    border:1px solid orange;
+}*/
+
+.table-form {
+	padding-right:10px;
+	text-align:right;
+	width:280px;
+}
+
+.table-bs {
+	padding-left:10px;
+	text-align:left;
+	vertical-align:top;
+	text-wrap:balance;
+	width:560px;
+}
+
+.div-left{
+	float:left;
+	padding-right:10px;
+	text-align:right;
+	width:48%;
+}
+.div-right{
+	float:right;
+	padding-left:10px;
+	text-align:left;
+	width:48%;
+}
+
+.bold {
+    font-weight:bold;
+    color:orange;
+}
+
+.date {
+	font-size:10pt;
+	width:100%;
+	margin-top:10px;
+	display:inline-block;
+}
+
+input {
+    width:45px !important;
+}
+
+input[type="text"]:invalid {
+    background-color : #f88;
+}
+
+input[type="text"]:focus, input[type="text"]:valid {
+    background-color : #444; 
+}
+
+::placeholder {
+    color:#fff;
+}
+
+input:focus::placeholder {
+    color:#ccc;
+}
+
+.location {
+	width:175px !important;
+}
+
+.reset {
+    width:inherit !important;
+    background-color:#99f;
+    color:#000;
+}
+
+select {
+    width:110px;
+}
+
+input, select {
+    background-color:#444;
+    color:#ccc;
+    font-size:12pt;
+    margin-bottom:8px;
+    text-align:center;
+}
+
+textarea {
+    background-color:#444;
+    color:#fff;
+    font-family:Calibri;
+	width:69%;
+	height:30%;
+}
+
+#br {
+    display: block;
+}
+
+</style>
+<!--https://www.shecodes.io/athena#question-422123-->
+<script>
+
+
+
+
+
+    function calculateDifference() {
+      // Get the values from the text boxes
+      const textBox1Value = document.getElementById('charged').value;
+      const textBox2Value = document.getElementById('zone').value;
+
+      // Calculate the difference between the values
+      const difference = Math.round(textBox1Value - textBox2Value);
+
+      // Display different text results based on the difference
+      if (difference < 0) {
+        document.getElementById('result').innerHTML = 'The Charged speed is lower than MPH Zone.<br>Check your numbers!';
+      } else if (difference >= 1 && difference <= 10) {
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">1-10mph</span> above the posted limit.<br>The associated fine is <span class="bold">$130/$180</span>.';
+      } else if (difference >= 11 && difference <= 15) {
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">11-15mph</span> above the posted limit.<br>The associated fine is <span class="bold">$160/$230</span>.';
+      } else if (difference >= 16 && difference <= 20) {
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">16-20mph</span> above the posted limit.<br>The associated fine is <span class="bold">$210/$330</span>.';
+      } else if (difference >= 21 && difference <= 25) {
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">21-25mph</span> above the posted limit.<br>The associated fine is <span class="bold">$280/$480</span>.';
+      } else if (difference >= 26 && difference <= 30) {
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">26-30mph</span> above the posted limit.<br>The associated fine is <span class="bold">$380/$680</span>.';
+      } else if (difference >= 31) {
+        document.getElementById('result').innerHTML = 'The charged speed is <span class="bold">greater than 30mph</span> above the posted limit.<br><span class="bold">The driver is mandated to contact the court.</span>';
+      } else {
+        document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get<br>associated monetary fine.';
+      }
+    }
+
+
+
+
+
+function update() {
+if (document.getElementById("check-aware").checked == false) {{{
+  document.querySelector("textarea.radar").value = `I checked the calibration of my radar unit at the beginning of my shift, and I perform an internal systems check of my radar system after each traffic stop.
+
+I observed a vehicle near ${locate.value} traveling ${observed.value}mph, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my ${ms.value}, ${fr.value}, ${os.value} radar.
+
+I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
+  }
+;
+    {
+    document.querySelector("textarea.lidar").value = `The LiDAR passed an internal systems check when it powered on.
+
+While sitting stationary, I observed a vehicle near ${locate.value} traveling ${observed.value}mph, in the ${os.value} lane relative to my position, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my LiDAR.
+
+I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
+  }}
+
+} else {{
+  document.querySelector("textarea.radar").value = `I checked the calibration of my radar unit at the beginning of my shift, and I perform an internal systems check of my radar system after each traffic stop.
+
+I observed a vehicle near ${locate.value} traveling ${observed.value}mph, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my ${ms.value}, ${fr.value}, ${os.value} radar.
+    
+When asked if the driver was aware of their speed and the speed limit, they stated they ${aspeed.value} of their speed, and ${alimit.value} of the speed limit.
+
+I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
+  }
+;
+    {
+    document.querySelector("textarea.lidar").value = `The LiDAR passed an internal systems check when it powered on.
+
+While sitting stationary, I observed a vehicle near ${locate.value} traveling ${observed.value}mph, in the ${os.value} lane relative to my position, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my LiDAR.
+    
+When asked if the driver was aware of their speed and the speed limit, they stated they ${aspeed.value} of their speed, and ${alimit.value} of the speed limit.
+
+I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
+  }}
+}
+
+
+function copyr() {
+  let textarea = document.getElementById("text-radar");
+  textarea.select();
+  document.execCommand("copy");
+}
+function copyl() {
+  let textarea = document.getElementById("text-lidar");
+  textarea.select();
+  document.execCommand("copy");
+}
+
+</script>
+
+
+</head>
+<body onmouseover="update(); calculateDifference()"></body>
+<!--https://www.tutorialspoint.com/online_html_editor.php-->
+
+<table>
+    <tr>
+        <td class="table-form">
+            
+            <form>
+Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
+Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
+&#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference()"><br>
+&#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference()"><br>
+<input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
+*M/S: <select id="ms" name="ms" onkeyup="update()" onclick="update()">
+<option name="ms" value="--">--</option>
+<option name="ms" value="moving">moving</option>
+<option name="ms" value="stationary">stationary</option>
+</select><br>
+
+*F/R: <select id="fr" name="fr" onkeyup="update()" onclick="update()">
+<option name="fr" value="--">--</option>
+<option name="fr" value="forward facing">forward</option>
+<option name="fr" value="rear facing">rear</option>
+</select><br>
+
+O/S: <select id="os" name="os" onkeyup="update()" onclick="update()">
+<option name="os" value="--">--</option>
+<option name="os" value="opposite">opposite</option>
+<option name="os" value="same">same</option>
+</select><br>
+
+C/W: <select id="cw" name="cw" onkeyup="update()" onclick="update()">
+<option name="cw" value="--">--</option>
+<option name="cw" value="citation">citation</option>
+<option name="cw" value="written warning">warning</option>
+</select><br>
+
+Aware of: <input id="check-aware" type="checkbox" onclick="update()"><br>
+Speed: <select id="aspeed" name="aspeed" onkeyup="update()" onclick="update()">
+<option name="aspeed" value="--">--</option>
+<option name="aspeed" value="were aware">aware</option>
+<option name="aspeed" value="were not aware">not aware</option>
+</select><br>
+
+Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="update()">
+<option name="alimit" value="--">--</option>
+<option name="alimit" value="were aware">aware</option>
+<option name="alimit" value="were not aware">not aware</option>
+</select><br>
+<input class="reset" type="reset" value="Clear All Fields">
+</form>
+            
+        </td>
+        <td class="table-bs">
+            
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding (regular/construction zone)<br><br>
+
+<!--<button onMouseover="calculateDifference()">&#8224;Hover for Fine</button><br>-->
+<div id="result"></div><br>
+
+
+
+
+	<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
+	<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1302.html" target="_blank">41-6a-1302(2)(b)</a> - Passing School Bus w/ flashing red
+            
+<br><br>
+            
+            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S820.html" target="_blank">58-37-8</a> - Possession of a Controlled Substance<br>
+           <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=It%20is%20unlawful%20for%20any%20person%20to%20deliver%2C%20possess%20with,%2C%20analyze%2C%20pack%2C%20repack%2C" target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
+           <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V
+           <br><br>
+           <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration ... $50<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S304.html" target="_blank">41-6a-304</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> -- Traffic Light - Stop Sign Violations<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S526.html" target="_blank">41-6a-526</a> - Open Container ... $110<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed
+
+            </td>
+            
+            <td class="table-bs"><!--<a href="" target="_blank"></a>-->
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations ... $130<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations ... Contact Court<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment (Underglow)<br>
+            <br>
+            
+
+
+            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License ... $50 ($40 w/ proof)<br>
+            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
+            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Suspended/Revoked/Denied ... Court Mandatory
+            
+           
+           <br>
+           
+           *All violations involving accident add $30
+            
+            
+            </td>
+    </tr>
+</table>
+
+
+
+
+
+<span id="br"></span>
+
+<div class="div-left">
+<textarea class="radar" id="text-radar" rows="11" cols="69"></textarea>
+<br>
+<button onclick="copyr()">Copy Radar</button>
+</div>
+
+
+<div class="div-right">
+<textarea class="lidar" id="text-lidar" rows="11" cols="69"></textarea>
+<br>
+<button onclick="copyl()">Copy LiDAR</button>
+</div>
+<br>
+<span class="date">*Only needed if using Radar<br>
+Last updated 05/19/2024</span>
+
+
+</body>
+</html>
