@@ -154,25 +154,7 @@ function calculateDifference() {
 }
 
 
-    // Array of words to check for in the URL
-    var wordsToCheck = ["default", "noah", "calvin"];
 
-    // Iterate through the array
-    for (var i = 0; i < wordsToCheck.length; i++) {
-      var word = wordsToCheck[i];
-
-      // Check if the URL contains the word preceded by "#"
-      if (window.location.href.includes("#" + word)) {
-        // Create a new script element
-        var script = document.createElement("script");
-
-        // Set the src attribute to the corresponding JavaScript file
-        script.src = "" + word + ".js";
-
-        // Append the script element to the HTML document
-        document.body.appendChild(script);
-      }
-    }
 
 
 
@@ -346,8 +328,30 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/23/2024 @ 08:08</span>
+Last updated 05/23/2024 @ 08:13</span>
 
+<script>
 
+    // Array of words to check for in the URL
+    var wordsToCheck = ["default", "noah", "calvin"];
+
+    // Iterate through the array
+    for (var i = 0; i < wordsToCheck.length; i++) {
+      var word = wordsToCheck[i];
+
+      // Check if the URL contains the word preceded by "#"
+      if (window.location.href.includes("#" + word)) {
+        // Create a new script element
+        var script = document.createElement("script");
+
+        // Set the src attribute to the corresponding JavaScript file
+        script.src = "" + word + ".js";
+
+        // Append the script element to the HTML document
+        document.body.appendChild(script);
+      }
+    }
+	
+</script>
 </body>
 </html>
