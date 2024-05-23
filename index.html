@@ -328,10 +328,14 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/23/2024 @ 08:13</span>
+Last updated 05/23/2024 @ 08:18</span>
 
 <script>
-
+    // Check if the URL contains "#"
+    if (!window.location.hash) {
+      // Append "#default" to the URL
+      window.location.href += "#default";
+    }
     // Array of words to check for in the URL
     var wordsToCheck = ["default", "noah", "calvin"];
 
