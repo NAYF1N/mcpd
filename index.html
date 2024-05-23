@@ -187,9 +187,9 @@ function copyl() {
 </head>
 <body onmouseover="update(); calculateDifference()"></body>
 	
-<script src="default.js" type="text/javascript" data-load="true" id="script1"></script>
-<script src="calvin.js" type="text/javascript" data-load="false" id="script2"></script>
-<script src="noah.js" type="text/javascript" data-load="false" id="script3"></script>
+<script src="default.js" type="text/javascript" data-load="true" id="default"></script>
+<script src="calvin.js" type="text/javascript" data-load="false" id="calvin"></script>
+<script src="noah.js" type="text/javascript" data-load="false" id="noah"></script>
 
 <!--https://www.tutorialspoint.com/online_html_editor.php-->
 
@@ -297,12 +297,13 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
     </tr>
 </table>
 
+<br><br>
 
-<a href="#" onclick="changeDataLoad('default')">Default (Nate)</a>
+<a href="#" onclick="changeDataLoad('default')">Nate (Default)</a>
 <a href="#" onclick="changeDataLoad('calvin')">Calvin</a>
 <a href="#" onclick="changeDataLoad('noah')">Noah</a>
 
-
+<br><br>
 
 <div class="div-left">
 <textarea class="radar" id="text-radar" rows="11" cols="69"></textarea>
@@ -318,7 +319,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/19/2024</span>
+Last updated 05/23/2024</span>
 
 
 </body>
