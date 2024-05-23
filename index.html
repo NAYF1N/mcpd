@@ -20,6 +20,11 @@ a:hover {
     color:#666;
 }
 
+.active {
+	color: blue;
+	font-weight: bold;
+}
+	
 /*.table-form, .table-bs {
     border:1px solid orange;
 }*/
@@ -168,6 +173,17 @@ textarea {
           scriptElement.setAttribute('data-load', 'false');
         }
       }
+
+      var allLinkElements = document.querySelectorAll('a[id^="link"]');
+      for (var j = 0; j < allLinkElements.length; j++) {
+        var linkElement = allLinkElements[j];
+
+        if (linkElement.id === scriptId + '-link') {
+          linkElement.classList.add('active');
+        } else {
+          linkElement.classList.remove('active');
+        }
+      }
     }
 
 function copyr() {
@@ -187,9 +203,9 @@ function copyl() {
 </head>
 <body onmouseover="update(); calculateDifference()"></body>
 	
-<script src="default.js" type="text/javascript" data-load="true" id="default"></script>
-<script src="calvin.js" type="text/javascript" data-load="false" id="calvin"></script>
-<script src="noah.js" type="text/javascript" data-load="false" id="noah"></script>
+<script src="default.js" type="text/javascript" data-load="true" id="default" data-link="link1"></script>
+<script src="calvin.js" type="text/javascript" data-load="false" id="calvin"data-link="link2"></script>
+<script src="noah.js" type="text/javascript" data-load="false" id="noah"data-link="link3"></script>
 
 <!--https://www.tutorialspoint.com/online_html_editor.php-->
 
@@ -297,11 +313,11 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
     </tr>
 </table>
 
-<br><br>
+<br>
 
-<a href="#" onclick="changeDataLoad('default')">Nate (Default)</a>
-<a href="#" onclick="changeDataLoad('calvin')">Calvin</a>
-<a href="#" onclick="changeDataLoad('noah')">Noah</a>
+<a href="#" onclick="changeDataLoad('default')" id="link1">Nate (Default)</a>
+<a href="#" onclick="changeDataLoad('calvin')" id="link2">Calvin</a>
+<a href="#" onclick="changeDataLoad('noah')" id="link3">Noah</a>
 
 <br><br>
 
