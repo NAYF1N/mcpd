@@ -156,45 +156,19 @@ textarea {
 
 
 
+    function changeDataLoad(scriptId) {
+      var allScriptElements = document.getElementsByTagName('script');
 
-function update() {
-if (document.getElementById("check-aware").checked == false) {{{
-  document.querySelector("textarea.radar").value = `I checked the calibration of my radar unit at the beginning of my shift, and I perform an internal systems check of my radar system after each traffic stop.
+      for (var i = 0; i < allScriptElements.length; i++) {
+        var scriptElement = allScriptElements[i];
 
-I observed a vehicle near ${locate.value} traveling ${observed.value}mph, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my ${ms.value}, ${fr.value}, ${os.value} radar.
-
-I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
-  }
-;
-    {
-    document.querySelector("textarea.lidar").value = `The LiDAR passed an internal systems check when it powered on.
-
-While sitting stationary, I observed a vehicle near ${locate.value} traveling ${observed.value}mph, in the ${os.value} lane relative to my position, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my LiDAR.
-
-I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
-  }}
-
-} else {{
-  document.querySelector("textarea.radar").value = `I checked the calibration of my radar unit at the beginning of my shift, and I perform an internal systems check of my radar system after each traffic stop.
-
-I observed a vehicle near ${locate.value} traveling ${observed.value}mph, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my ${ms.value}, ${fr.value}, ${os.value} radar.
-    
-When asked if the driver was aware of their speed and the speed limit, they stated they ${aspeed.value} of their speed, and ${alimit.value} of the speed limit.
-
-I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
-  }
-;
-    {
-    document.querySelector("textarea.lidar").value = `The LiDAR passed an internal systems check when it powered on.
-
-While sitting stationary, I observed a vehicle near ${locate.value} traveling ${observed.value}mph, in the ${os.value} lane relative to my position, and confirmed a speed of ${confirmed.value}mph in a ${zone.value}mph zone with my LiDAR.
-    
-When asked if the driver was aware of their speed and the speed limit, they stated they ${aspeed.value} of their speed, and ${alimit.value} of the speed limit.
-
-I decided to issue a ${cw.value} for driving ${charged.value}mph in a ${zone.value}mph zone.`
-  }}
-}
-
+        if (scriptElement.id === scriptId) {
+          scriptElement.setAttribute('data-load', 'true');
+        } else {
+          scriptElement.setAttribute('data-load', 'false');
+        }
+      }
+    }
 
 function copyr() {
   let textarea = document.getElementById("text-radar");
@@ -212,6 +186,11 @@ function copyl() {
 
 </head>
 <body onmouseover="update(); calculateDifference()"></body>
+	
+<script src="default.js" type="text/javascript" data-load="true" id="script1"></script>
+<script src="calvin.js" type="text/javascript" data-load="false" id="script2"></script>
+<script src="noah.js" type="text/javascript" data-load="false" id="script3"></script>
+
 <!--https://www.tutorialspoint.com/online_html_editor.php-->
 
 <table>
@@ -319,10 +298,11 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </table>
 
 
+<a href="#" onclick="changeDataLoad('default')">Default (Nate)</a>
+<a href="#" onclick="changeDataLoad('calvin')">Calvin</a>
+<a href="#" onclick="changeDataLoad('noah')">Noah</a>
 
 
-
-<span id="br"></span>
 
 <div class="div-left">
 <textarea class="radar" id="text-radar" rows="11" cols="69"></textarea>
