@@ -170,35 +170,9 @@ function copyl() {
 }
 
 </script>
-<!--
-	        function setActiveSource(source) {
-            // Reset the active styling for all links
-            document.getElementById('link1').classList.remove('active-link');
-            document.getElementById('link2').classList.remove('active-link');
-            document.getElementById('link3').classList.remove('active-link');
-
-            // Set the chosen link as active
-            document.getElementById(link${source.slice(-1)}).classList.add('active-link');
-
-            // Reset all sources to inactive
-            document.getElementById('default').removeAttribute('active');
-            document.getElementById('calvin').removeAttribute('active');
-            document.getElementById('noah').removeAttribute('active');
-
-            // Set the chosen source as active
-            document.getElementById(source).setAttribute('active', '');
-        }
--->
-
 </head>
 <body onmouseover="update(); calculateDifference()"></body>
 
-<!--
-<script src="default.js" type="text/javascript" id="default"></script>
-<script src="calvin.js" type="text/javascript" id="calvin"></script>
-<script src="noah.js" type="text/javascript" id="noah"></script>
--->
-<!--https://www.tutorialspoint.com/online_html_editor.php-->
 
 <table>
     <tr>
@@ -304,16 +278,6 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
     </tr>
 </table>
 
-<br>
-
-<!--
-<a href="#" onclick="setActiveSource('default')" id="link1">Nate (Default)</a>  
-<a href="#" onclick="setActiveSource('calvin')" id="link2">Calvin</a>  
-<a href="#" onclick="setActiveSource('noah')" id="link3">Noah</a>
--->
-
-<br><br>
-
 <div class="div-left">
 <textarea class="radar" id="text-radar" rows="11" cols="69"></textarea>
 <br>
@@ -328,7 +292,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/23/2024 @ 08:18</span>
+Last updated 05/23/2024 @ 08:22</span>
 
 <script>
     // Check if the URL contains "#"
@@ -337,7 +301,7 @@ Last updated 05/23/2024 @ 08:18</span>
       window.location.href += "#default";
     }
     // Array of words to check for in the URL
-    var wordsToCheck = ["default", "noah", "calvin"];
+    var wordsToCheck = ["default", "noah", "calvin", "schadie", "dulce"];
 
     // Iterate through the array
     for (var i = 0; i < wordsToCheck.length; i++) {
