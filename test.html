@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Data-Load Attribute with HTML Links</title>
+  <style>
+    .active {
+      color: blue;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Links to change the data-load attribute -->
+  <a href="#" onclick="changeDataLoad('script1')" id="link1">Load Script 1</a>
+  <a href="#" onclick="changeDataLoad('script2')" id="link2">Load Script 2</a>
+  <a href="#" onclick="changeDataLoad('script3')" id="link3">Load Script 3</a>
+
+  <!-- JavaScript sources -->
+  <script src="script1.js" type="text/javascript" data-load="false" id="script1" data-link="link1"></script>
+  <script src="script2.js" type="text/javascript" data-load="false" id="script2" data-link="link2"></script>
+  <script src="script3.js" type="text/javascript" data-load="false" id="script3" data-link="link3"></script>
+
+  <script type="text/javascript">
+    function changeDataLoad(scriptId) {
+      var allScriptElements = document.getElementsByTagName('script');
+
+      for (var i = 0; i < allScriptElements.length; i++) {
+        var scriptElement = allScriptElements[i];
+
+        if (scriptElement.id === scriptId) {
+          scriptElement.setAttribute('data-load', 'true');
+        } else {
+          scriptElement.setAttribute('data-load', 'false');
+        }
+      }
+
+      var allLinkElements = document.querySelectorAll('a[id^="link"]');
+      for (var j = 0; j < allLinkElements.length; j++) {
+        var linkElement = allLinkElements[j];
+
+        if (linkElement.id === scriptId + '-link') {
+          linkElement.classList.add('active');
+        } else {
+          linkElement.classList.remove('active');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
