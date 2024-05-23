@@ -20,7 +20,7 @@ a:hover {
     color:#666;
 }
 
-.active {
+.active-link {
 	color: blue !important;
 	font-weight: bold !important;
 }
@@ -156,30 +156,23 @@ function calculateDifference() {
 
 
 
-    function changeDataLoad(scriptId) {
-      var allScriptElements = document.getElementsByTagName('script');
+        function setActiveSource(source) {
+            // Reset the active styling for all links
+            document.getElementById('link1').classList.remove('active-link');
+            document.getElementById('link2').classList.remove('active-link');
+            document.getElementById('link3').classList.remove('active-link');
 
-      for (var i = 0; i < allScriptElements.length; i++) {
-        var scriptElement = allScriptElements[i];
+            // Set the chosen link as active
+            document.getElementById(link${source.slice(-1)}).classList.add('active-link');
 
-        if (scriptElement.id === scriptId) {
-          scriptElement.setAttribute('data-load', 'true');
-        } else {
-          scriptElement.setAttribute('data-load', 'false');
+            // Reset all sources to inactive
+            document.getElementById('default').removeAttribute('active');
+            document.getElementById('calvin').removeAttribute('active');
+            document.getElementById('noah').removeAttribute('active');
+
+            // Set the chosen source as active
+            document.getElementById(source).setAttribute('active', '');
         }
-      }
-
-      var allLinkElements = document.querySelectorAll('a[id^="link"]');
-      for (var j = 0; j < allLinkElements.length; j++) {
-        var linkElement = allLinkElements[j];
-
-        if (linkElement.id === scriptId + '-link') {
-          linkElement.classList.add('active');
-        } else {
-          linkElement.classList.remove('active');
-        }
-      }
-    }
 
 function copyr() {
   let textarea = document.getElementById("text-radar");
@@ -198,9 +191,9 @@ function copyl() {
 </head>
 <body onmouseover="update(); calculateDifference()"></body>
 	
-<script src="default.js" type="text/javascript" data-load="true" id="default" data-link="link1"></script>
-<script src="calvin.js" type="text/javascript" data-load="false" id="calvin" data-link="link2"></script>
-<script src="noah.js" type="text/javascript" data-load="false" id="noah" data-link="link3"></script>
+<script src="default.js" type="text/javascript" id="default" defer></script>
+<script src="calvin.js" type="text/javascript" id="calvin" defer></script>
+<script src="noah.js" type="text/javascript" id="noah" defer></script>
 
 <!--https://www.tutorialspoint.com/online_html_editor.php-->
 
@@ -310,9 +303,9 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 
 <br>
 
-<a href="#" onclick="changeDataLoad('default')" id="link1">Nate (Default)</a>
-<a href="#" onclick="changeDataLoad('calvin')" id="link2">Calvin</a>
-<a href="#" onclick="changeDataLoad('noah')" id="link3">Noah</a>
+<a href="#" onclick="setActiveSource('default')" id="link1">Nate (Default)</a>
+<a href="#" onclick="setActiveSource('calvin')" id="link2">Calvin</a>
+<a href="#" onclick="setActiveSource('noah')" id="link3">Noah</a>
 
 <br><br>
 
@@ -330,7 +323,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/23/2024 @ 07:22</span>
+Last updated 05/23/2024 @ 07:45</span>
 
 
 </body>
