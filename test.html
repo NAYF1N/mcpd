@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Change Data-Load Attribute with HTML Links</title>
-  <style>
-    .active {
-      color: blue;
-      font-weight: bold;
-    }
-  </style>
+    <!-- CSS for active source styling -->
+    <style>
+        .active-link {
+            font-weight: bold;
+        }
+    </style>
+
+    <!-- JavaScript loaded in the head section -->
+    <script src="head-script.js" defer></script>
 </head>
 <body>
-  <!-- Links to change the data-load attribute -->
-  <a href="#" onclick="changeDataLoad('script1')" id="link1">Load Script 1</a>
-  <a href="#" onclick="changeDataLoad('script2')" id="link2">Load Script 2</a>
-  <a href="#" onclick="changeDataLoad('script3')" id="link3">Load Script 3</a>
+    <script>
+        // Load and make the first source active by default
+        window.onload = function() {
+            setActiveSource('source1');
+        };
+    </script>
 
-  <!-- JavaScript sources -->
-  <script src="script1.js" type="text/javascript" data-load="false" id="script1" data-link="link1"></script>
-  <script src="script2.js" type="text/javascript" data-load="false" id="script2" data-link="link2"></script>
-  <script src="script3.js" type="text/javascript" data-load="false" id="script3" data-link="link3"></script>
+    <h1>My Web Page</h1>
 
-  <script type="text/javascript">
-    function changeDataLoad(scriptId) {
-      var allScriptElements = document.getElementsByTagName('script');
+    <!-- Links to choose the active source -->
+    <a href="#" onclick="setActiveSource('source1')" id="link1" class="active-link">Source 1</a>
+    <a href="#" onclick="setActiveSource('source2')" id="link2">Source 2</a>
+    <a href="#" onclick="setActiveSource('source3')" id="link3">Source 3</a>
 
-      for (var i = 0; i < allScriptElements.length; i++) {
-        var scriptElement = allScriptElements[i];
+    <!-- Load specific JavaScript sources with defer -->
+    <script src="source1.js" id="source1" defer></script>
+    <script src="source2.js" id="source2" defer></script>
+    <script src="source3.js" id="source3" defer></script>
 
-        if (scriptElement.id === scriptId) {
-          scriptElement.setAttribute('data-load', 'true');
-        } else {
-          scriptElement.setAttribute('data-load', 'false');
+    <!-- JavaScript to handle the active source and styling -->
+    <script>
+        function setActiveSource(source) {
+            // Reset the active styling for all links
+            document.getElementById('link1').classList.remove('active-link');
+            document.getElementById('link2').classList.remove('active-link');
+            document.getElementById('link3').classList.remove('active-link');
+
+            // Set the chosen link as active
+            document.getElementById(link${source.slice(-1)}).classList.add('active-link');
+
+            // Reset all sources to inactive
+            document.getElementById('source1').removeAttribute('active');
+            document.getElementById('source2').removeAttribute('active');
+            document.getElementById('source3').removeAttribute('active');
+
+            // Set the chosen source as active
+            document.getElementById(source).setAttribute('active', '');
         }
-      }
-
-      var allLinkElements = document.querySelectorAll('a[id^="link"]');
-      for (var j = 0; j < allLinkElements.length; j++) {
-        var linkElement = allLinkElements[j];
-
-        if (linkElement.id === scriptId + '-link') {
-          linkElement.classList.add('active');
-        } else {
-          linkElement.classList.remove('active');
-        }
-      }
-    }
-  </script>
+    </script>
 </body>
 </html>
