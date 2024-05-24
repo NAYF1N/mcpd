@@ -184,6 +184,15 @@ Confirmed: <input required type="text" placeholder="--" id="confirmed" name="con
 &#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference()"><br>
 &#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference()"><br>
 <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
+
+Direction: <select id="direction" name="direction" onkeyup="update()" onclick="update()">
+<option name="direction" value="--">--</option>
+<option name="direction" value="north, ">north</option>
+<option name="direction" value="south, ">south</option>
+<option name="direction" value="east, ">east</option>
+<option name="direction" value="west, ">west</option>
+</select><br>		    
+		    
 *M/S: <select id="ms" name="ms" onkeyup="update()" onclick="update()">
 <option name="ms" value="--">--</option>
 <option name="ms" value="moving">moving</option>
