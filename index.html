@@ -2,6 +2,15 @@
 <html>
 <title>Speed Citation Template</title>
 <head>
+
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+<link rel="manifest" href="img/site.webmanifest">
+<link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
 <style>
 body {
 	color:#fff;
@@ -10,7 +19,7 @@ body {
 	font-size:12pt;
 	font-family:Calibri;
 	background-color:rgba(34,34,34,1.0);
-	background-image:url('bg.png');
+	background-image:url('img/bg.png');
 	background-position:center;
 	background-repeat:no-repeat;
 }
@@ -175,7 +184,7 @@ function copyl() {
 
 </script>
 </head>
-<body onmouseover="update(); calculateDifference()"></body>
+<body onload="update(); calculateDifference()"></body>
 
 
 <table>
@@ -305,7 +314,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/26/2024 @ 07:30</span>
+Last updated 05/26/2024 @ 07:50</span>
 
 <script>
     // Check if the URL contains "#"
