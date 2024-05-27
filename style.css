@@ -1,1 +1,133 @@
-asdf
+body {
+	color:#fff;
+	line-height:1.4;
+	text-align:center;
+	font-size:12pt;
+	font-family:Calibri;
+	background-color:rgba(34,34,34,1.0);
+	background-image:url('img/bg.png');
+	background-position:center;
+	background-repeat:no-repeat;
+}
+
+
+a {
+   color:#f88; 
+}
+
+a:hover {
+    color:#666;
+}
+
+.active-link {
+	color: blue !important;
+	font-weight: bold !important;
+}
+	
+/*.table-form, .table-bs {
+    border:1px solid orange;
+}*/
+
+.table-form {
+	padding-right:10px;
+	text-align:right;
+	width:280px;
+}
+
+.table-bs {
+	padding-left:10px;
+	text-align:left;
+	vertical-align:top;
+	text-wrap:balance;
+	width:560px;
+}
+
+.div-left{
+	float:left;
+	padding-right:10px;
+	text-align:right;
+	width:48%;
+}
+.div-right{
+	float:right;
+	padding-left:10px;
+	text-align:left;
+	width:48%;
+}
+
+.bold {
+    font-weight:bold;
+    color:orange;
+}
+
+.date {
+	font-size:10pt;
+	width:100%;
+	margin-top:10px;
+	display:inline-block;
+}
+
+hr {
+	border:none;
+	border-top:3px solid #666;
+	margin-top:15px;
+	margin-bottom:15px;
+	margin-right:25%;
+	margin-left:none;
+	width:75%;
+	float:left;
+}
+	
+input {
+    width:45px !important;
+}
+
+input[type="text"]:invalid {
+    background-color : #f88;
+}
+
+input[type="text"]:focus, input[type="text"]:valid {
+    background-color : #444; 
+}
+
+::placeholder {
+    color:#fff;
+}
+
+input:focus::placeholder {
+    color:#ccc;
+}
+
+.location {
+	width:175px !important;
+}
+
+.reset {
+    width:inherit !important;
+    background-color:#99f;
+    color:#000;
+}
+
+select {
+    width:110px;
+}
+
+input, select {
+    background-color:#444;
+    color:#ccc;
+    font-size:12pt;
+    margin-bottom:8px;
+    text-align:center;
+}
+
+textarea {
+    background-color:rgba(69,69,69,0.75);
+    color:#fff;
+    font-family:Calibri;
+	width:69%;
+	height:30%;
+}
+
+#br {
+    display: block;
+}
