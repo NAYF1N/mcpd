@@ -11,131 +11,9 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" content="#ffffff">
 
-<style>
-body {
-	color:#fff;
-	line-height:1.4;
-	text-align:center;
-	font-size:12pt;
-	font-family:Calibri;
-	background-color:rgba(34,34,34,1.0);
-	background-image:url('img/bg.png');
-	background-position:center;
-	background-repeat:no-repeat;
-}
+<link rel="stylesheet" href="style.css">
 
 
-a {
-   color:#f88; 
-}
-
-a:hover {
-    color:#666;
-}
-
-.active-link {
-	color: blue !important;
-	font-weight: bold !important;
-}
-	
-/*.table-form, .table-bs {
-    border:1px solid orange;
-}*/
-
-.table-form {
-	padding-right:10px;
-	text-align:right;
-	width:280px;
-}
-
-.table-bs {
-	padding-left:10px;
-	text-align:left;
-	vertical-align:top;
-	text-wrap:balance;
-	width:560px;
-}
-
-.div-left{
-	float:left;
-	padding-right:10px;
-	text-align:right;
-	width:48%;
-}
-.div-right{
-	float:right;
-	padding-left:10px;
-	text-align:left;
-	width:48%;
-}
-
-.bold {
-    font-weight:bold;
-    color:orange;
-}
-
-.date {
-	font-size:10pt;
-	width:100%;
-	margin-top:10px;
-	display:inline-block;
-}
-
-input {
-    width:45px !important;
-}
-
-input[type="text"]:invalid {
-    background-color : #f88;
-}
-
-input[type="text"]:focus, input[type="text"]:valid {
-    background-color : #444; 
-}
-
-::placeholder {
-    color:#fff;
-}
-
-input:focus::placeholder {
-    color:#ccc;
-}
-
-.location {
-	width:175px !important;
-}
-
-.reset {
-    width:inherit !important;
-    background-color:#99f;
-    color:#000;
-}
-
-select {
-    width:110px;
-}
-
-input, select {
-    background-color:#444;
-    color:#ccc;
-    font-size:12pt;
-    margin-bottom:8px;
-    text-align:center;
-}
-
-textarea {
-    background-color:rgba(69,69,69,0.75);
-    color:#fff;
-    font-family:Calibri;
-	width:69%;
-	height:30%;
-}
-
-#br {
-    display: block;
-}
-
-</style>
 <!--https://www.shecodes.io/athena#question-422123-->
 <script>
 function calculateDifference() {
@@ -259,41 +137,43 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 	<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
 	<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1302.html" target="_blank">41-6a-1302(2)(b)</a> - Passing School Bus w/ flashing red
             
-<br><br>
-            
-            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S820.html" target="_blank">58-37-8</a> - Possession of a Controlled Substance<br>
-           <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=It%20is%20unlawful%20for%20any%20person%20to%20deliver%2C%20possess%20with,%2C%20analyze%2C%20pack%2C%20repack%2C" target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
-           <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V
-           <br><br>
+
+
+<br><hr>
+
            <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration ... $50<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S304.html" target="_blank">41-6a-304</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> -- Traffic Light - Stop Sign Violations<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S526.html" target="_blank">41-6a-526</a> - Open Container ... $110<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed
-
-            </td>
-            
-            <td class="table-bs"><!--<a href="" target="_blank"></a>-->
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations ... $130<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a>
+
+            </td>
+            
+            <td class="table-bs"><!--<a href="" target="_blank"></a>-->
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations ... Contact Court<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment (Underglow)<br>
-            <br>
-            
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment (Underglow)
 
+<br><hr>
 
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License ... $50 ($40 w/ proof)<br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Suspended/Revoked/Denied ... Court Mandatory
+
+<br><hr>
             
+            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S820.html" target="_blank">58-37-8</a> - Possession of a Controlled Substance<br>
+           <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=It%20is%20unlawful%20for%20any%20person%20to%20deliver%2C%20possess%20with,%2C%20analyze%2C%20pack%2C%20repack%2C" target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
+           <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V
            
-           <br>
+           <br><br>
            
-           *All violations involving accident add $30
+           **All violations involving accident add $30
             
             
             </td>
@@ -314,7 +194,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/26/2024 @ 07:50</span>
+Last updated 05/27/2024 @ 03:48</span>
 
 <script>
     // Check if the URL contains "#"
