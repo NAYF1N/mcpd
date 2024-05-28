@@ -44,11 +44,6 @@ function calculateDifference() {
       }
 }
 
-
-
-
-
-
 function copyr() {
   let textarea = document.getElementById("text-radar");
   textarea.select();
@@ -62,7 +57,7 @@ function copyl() {
 
 </script>
 </head>
-<body onload="update(); calculateDifference()"></body>
+<body onload="update(); calculateDifference()" onmouseenter="update(); calculateDifference()">
 
 
 <table>
@@ -120,7 +115,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 <option name="alimit" value="were aware">aware</option>
 <option name="alimit" value="were not aware">not aware</option>
 </select><br>
-<input class="reset" type="reset" value="Clear All Fields">
+<input class="reset" type="reset" value="Clear All Fields" onclick="update(); calculateDifference()">
 </form>
             
         </td>
@@ -194,7 +189,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/27/2024 @ 06:12</span>
+Last updated 05/28/2024 @ 04:00</span>
 
 <script>
     // Check if the URL contains "#"
