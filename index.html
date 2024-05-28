@@ -55,6 +55,12 @@ function copyl() {
   document.execCommand("copy");
 }
 
+function clearForm() {
+    update();
+    update();
+    calculateDifference();
+}
+
 </script>
 </head>
 <body onload="update(); calculateDifference()" onmouseenter="update(); calculateDifference()">
@@ -115,7 +121,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 <option name="alimit" value="were aware">aware</option>
 <option name="alimit" value="were not aware">not aware</option>
 </select><br>
-<input class="reset" type="reset" value="Clear All Fields" onclick="update(); calculateDifference()">
+<input class="reset" type="reset" value="Clear All Fields" onclick="clearForm()">
 </form>
             
         </td>
@@ -189,7 +195,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/28/2024 @ 04:00</span>
+Last updated 05/28/2024 @ 04:10</span>
 
 <script>
     // Check if the URL contains "#"
