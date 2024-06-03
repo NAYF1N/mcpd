@@ -55,9 +55,13 @@ a:hover {
 	width:48%;
 }
 
-.bold {
+.warning {
     font-weight:bold;
     color:orange;
+}
+
+.bold {
+    font-weight:bold;
 }
 
 .bold-ds {
