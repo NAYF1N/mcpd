@@ -12,7 +12,7 @@ body {
 
 
 a {
-   color:#f88; 
+   color:#93e7fd;/*f88*/
 }
 
 a:hover {
@@ -60,6 +60,12 @@ a:hover {
     color:orange;
 }
 
+.bold-ds {
+	font-weight:bold !important;
+	color:red;
+	font-size:12pt;
+}
+
 .date {
 	font-size:10pt;
 	width:100%;
@@ -83,7 +89,7 @@ input {
 }
 
 input[type="text"]:invalid {
-    background-color : #f88;
+    background-color:rgba(147,231,253,.75);
 }
 
 input[type="text"]:focus, input[type="text"]:valid {
@@ -104,8 +110,11 @@ input:focus::placeholder {
 
 .reset {
     width:inherit !important;
-    background-color:#99f;
-    color:#000;
+    background-color:rgba(147,231,253,.75);
+    color:#FFF;
+	border-radius:5px;
+	font-size:11pt;
+	padding:3px;
 }
 
 select {
@@ -126,8 +135,4 @@ textarea {
     font-family:Calibri;
 	width:69%;
 	height:30%;
-}
-
-#br {
-    display: block;
 }

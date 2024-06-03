@@ -28,21 +28,57 @@ function calculateDifference() {
       if (difference < 0) {
         document.getElementById('result').innerHTML = 'The Charged speed is lower than MPH Zone.<br>Check your numbers!';
       } else if (difference >= 1 && difference <= 10) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">1-10mph</span> above the posted limit.<br>The associated fine is <span class="bold">$130/$180</span>.';
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">1-10mph</span> above the posted limit.<br>The associated fine is <span class="bold">$130, or $180 in a construction zone</span>.';
       } else if (difference >= 11 && difference <= 15) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">11-15mph</span> above the posted limit.<br>The associated fine is <span class="bold">$160/$230</span>.';
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">11-15mph</span> above the posted limit.<br>The associated fine is <span class="bold">$160, or $230 in a construction zone</span>.';
       } else if (difference >= 16 && difference <= 20) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">16-20mph</span> above the posted limit.<br>The associated fine is <span class="bold">$210/$330</span>.';
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">16-20mph</span> above the posted limit.<br>The associated fine is <span class="bold">$210, or $330 in a construction zone</span>.';
       } else if (difference >= 21 && difference <= 25) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">21-25mph</span> above the posted limit.<br>The associated fine is <span class="bold">$280/$480</span>.';
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">21-25mph</span> above the posted limit.<br>The associated fine is <span class="bold">$280, or $480 in a construction zone</span>.';
       } else if (difference >= 26 && difference <= 30) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">26-30mph</span> above the posted limit.<br>The associated fine is <span class="bold">$380/$680</span>.';
+        document.getElementById('result').innerHTML = 'The charged speed is between <span class="bold">26-30mph</span> above the posted limit.<br>The associated fine is <span class="bold">$380, or $680 in a construction zone</span>.';
       } else if (difference >= 31) {
         document.getElementById('result').innerHTML = 'The charged speed is <span class="bold">greater than 30mph</span> above the posted limit.<br><span class="bold">The driver is mandated to contact the court.</span>';
       } else {
         document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get<br>associated monetary fine.';
       }
 }
+
+function doubleSpeed() {
+// Retrieve the values from the textboxes
+const number1 = document.getElementById("zone").value;
+const number2 = document.getElementById("confirmed").value;
+
+// Compare the doubled number to number2
+if (number1 == 0 && number2 == 0) {
+	document.getElementById("output").innerHTML = '';
+} else if (number2 >= (number1 * 2)) {
+  // Output text with HTML if doubledNumber is greater than number2
+  document.getElementById("output").innerHTML = 'The confirmed speed is or more than double the posted limit.';
+} else {
+  // Output text with HTML if doubledNumber is equal to number2
+  document.getElementById("output").innerHTML = '';
+}
+}
+
+
+
+    function observedDifference() {
+      // Get the values from the text boxes
+      const value1 = document.getElementById("confirmed").value;
+      const value2 = document.getElementById("zone").value;
+
+      // Calculate the difference
+      const difference = Math.round(value1 - value2);
+
+      // Display the difference
+	if (value1 - value2 == 0) {
+	document.getElementById("obsdiff").innerHTML = 'Enter data';
+} else {
+      document.getElementById("obsdiff").innerHTML = 'The confirmed speed is ' + difference + 'mph above the posted limit.';
+    }
+}
+
 
 function copyr() {
   let textarea = document.getElementById("text-radar");
@@ -59,11 +95,13 @@ function clearForm() {
     update();
     update();
     calculateDifference();
+	observedDifference();
+	doubleSpeed();
 }
 
 </script>
 </head>
-<body onload="update(); calculateDifference()" onmouseenter="update(); calculateDifference()">
+<body onload="update(); calculateDifference(); doubleSpeed(); observedDifference()" onmouseenter="update(); calculateDifference(); doubleSpeed(); observedDifference()">
 
 
 <table>
@@ -72,9 +110,9 @@ function clearForm() {
             
 <form autocomplete="off">
 Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
-Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
-&#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference()"><br>
-&#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference()"><br>
+Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update(); observedDifference()"><br>
+&#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); observedDifference()" onblur="doubleSpeed()"><br>
+&#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
 <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
 
 Direction: <select id="direction" name="direction" onkeyup="update()" onclick="update()">
@@ -129,8 +167,12 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
             
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding (regular/construction zone)<br><br>
 
-
+<span id="obsdiff"></span><br><br>
+<!--<span id="output" class="bold-ds"></span><br>-->
 <div id="result"></div><br>
+
+
+
 
 
 
@@ -148,14 +190,14 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations ... $130<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel
 
             </td>
             
             <td class="table-bs"><!--<a href="" target="_blank"></a>-->
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations ... Contact Court<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment (Underglow)
@@ -195,7 +237,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 05/28/2024 @ 04:10</span>
+Last updated 06/03/2024 @ 10:55</span>
 
 <script>
     // Check if the URL contains "#"
@@ -222,7 +264,7 @@ Last updated 05/28/2024 @ 04:10</span>
         document.body.appendChild(script);
       }
     }
-	
+ 
 </script>
 </body>
 </html>
