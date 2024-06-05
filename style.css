@@ -6,8 +6,17 @@ body {
 	font-family:Calibri;
 	background-color:rgba(34,34,34,1.0);
 	background-image:url('img/bg.png');
+	background-attachment:fixed;
 	background-position:center;
 	background-repeat:no-repeat;
+}
+
+
+.header {
+	font-size:30pt;
+	font-weight:bold;
+	color:#93e7fd;
+	text-shadow: 5px 5px 5px #000;
 }
 
 
@@ -32,6 +41,7 @@ a:hover {
 	padding-right:10px;
 	text-align:right;
 	width:280px;
+	vertical-align:top;
 }
 
 .table-bs {
@@ -40,6 +50,12 @@ a:hover {
 	vertical-align:top;
 	text-wrap:balance;
 	width:560px;
+}
+
+.convert {
+	width:90px;
+	height:25px;
+	text-align:center;
 }
 
 .div-left{
@@ -79,13 +95,23 @@ a:hover {
 
 hr {
 	border:none;
-	border-top:3px solid #666;
+	border-top:3px solid #696969;
 	margin-top:15px;
 	margin-bottom:15px;
 	margin-right:25%;
 	margin-left:none;
 	width:75%;
 	float:left;
+}
+
+.bottom {
+	border:none;
+	border-top:3px solid #696969;
+	margin-top:15px;
+	margin-bottom:15px;
+	margin-left:10% !important;
+	margin-right:10% !important;
+	width:80% !important;
 }
 	
 input {
@@ -109,7 +135,7 @@ input:focus::placeholder {
 }
 
 .location {
-	width:175px !important;
+	width:200px !important;
 }
 
 .reset {

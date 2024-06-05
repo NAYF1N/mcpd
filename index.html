@@ -16,6 +16,42 @@
 
 <!--https://www.shecodes.io/athena#question-422123-->
 <script>
+
+
+function heightWeight() {
+            // Get the values from the text boxes
+            var meters = parseFloat(document.getElementById("heightM").value) || 0;
+            var centimeters = parseFloat(document.getElementById("heightCm").value) || 0;
+
+            // Convert meters to inches
+            var totalInchesMeters = meters * 39.37;
+
+            // Convert inches to feet and inches (part for meters)
+            var feetMeters = Math.floor(totalInchesMeters / 12);
+            var inchesMeters = Math.round(totalInchesMeters % 12);
+
+            // Convert centimeters to inches
+            var inchesCentimeters = centimeters / 2.54;
+
+            // Convert inches to feet and inches (part for centimeters)
+            var feetCentimeters = Math.floor(inchesCentimeters / 12);
+            var inchesCentimetersRemainder = Math.round(inchesCentimeters % 12);
+
+            // Display the results
+            document.getElementById("heightFt-M").innerHTML = isNaN(feetMeters) ? "" : Math.round(feetMeters) + "'";
+            document.getElementById("heightIn-M").innerHTML = isNaN(inchesMeters) ? "" : Math.round(inchesMeters) + '"';
+            document.getElementById("heightFt-Cm").innerHTML = isNaN(feetCentimeters) ? "" : Math.round(feetCentimeters) + "'";
+            document.getElementById("heightIn-Cm").innerHTML = isNaN(inchesCentimetersRemainder) ? "" : Math.round(inchesCentimetersRemainder) + '"';
+
+            // Convert kilograms to pounds
+            var kilograms = parseFloat(document.getElementById("weightKg").value) || 0;
+            var pounds = Math.round(kilograms * 2.205);
+
+            // Display the result
+            document.getElementById("weightLbs").innerHTML = isNaN(pounds) ? "" : Math.round(pounds) + "lbs";
+        }
+
+
 function calculateDifference() {
       // Get the values from the text boxes
       const textBox1Value = document.getElementById('charged').value;
@@ -63,7 +99,7 @@ if (number1 == 0 && number2 == 0) {
 
 
 
-    function observedDifference() {
+    function confirmedDifference() {
       // Get the values from the text boxes
       const value1 = document.getElementById("confirmed").value;
       const value2 = document.getElementById("zone").value;
@@ -75,7 +111,7 @@ if (number1 == 0 && number2 == 0) {
 	if (value1 - value2 == 0) {
 	document.getElementById("obsdiff").innerHTML = 'Enter data';
 } else {
-      document.getElementById("obsdiff").innerHTML = 'The confirmed speed is ' + difference + 'mph above the posted limit.';
+      document.getElementById("obsdiff").innerHTML = 'The confirmed speed is <span class="warning">' + difference + 'mph above the posted limit</span>.';
     }
 }
 
@@ -95,14 +131,21 @@ function clearForm() {
     update();
     update();
     calculateDifference();
-	observedDifference();
+	confirmedDifference();
 	doubleSpeed();
 }
 
-</script>
-</head>
-<body onload="update(); calculateDifference(); doubleSpeed(); observedDifference()" onmouseenter="update(); calculateDifference(); doubleSpeed(); observedDifference()">
 
+
+
+
+</script>
+
+
+</head>
+<body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()">
+
+<span class="header">Traffic Citation Template/Cheat Sheet</span><br>
 
 <table>
     <tr>
@@ -110,8 +153,8 @@ function clearForm() {
             
 <form autocomplete="off">
 Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
-Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update(); observedDifference()"><br>
-&#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); observedDifference()" onblur="doubleSpeed()"><br>
+Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
+&#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); confirmedDifference()" onblur="doubleSpeed()"><br>
 &#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
 <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
 
@@ -161,7 +204,30 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </select><br>
 <input class="reset" type="reset" value="Clear All Fields" onclick="clearForm()">
 </form>
-            
+
+
+<table>
+<tr>
+<td class="convert" colspan="3">
+<span class="bold">Unit Conversions</span>
+</td>
+</tr>
+<tr>
+<td class="convert">Height (M)</td>
+<td class="convert">Height (Cm)</td>
+<td class="convert">Weight (Kg)</span></td>
+</tr>
+<tr>
+<td class="convert"><input required type="text" placeholder="--" id="heightM" name="heightM" onkeyup="heightWeight()"></td>
+<td class="convert"><input required type="text" placeholder="--" id="heightCm" name="heightCm" onkeyup="heightWeight()"></td>
+<td class="convert"><input required type="text" placeholder="--" id="weightKg" name="weightKg" onkeyup="heightWeight()"></td>
+</tr>
+<tr>
+<td class="convert"><span id="heightFt-M"></span><span id="heightIn-M"></span></td>
+<td class="convert"><span id="heightFt-Cm"></span><span id="heightIn-Cm"></span></td>
+<td class="convert"><span id="weightLbs"></span></td>
+</tr>
+</table>           
         </td>
         <td class="table-bs">
             
@@ -183,6 +249,9 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 
 
 <br><hr>
+
+
+
 
            <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration ... $50<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S304.html" target="_blank">41-6a-304</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> -- Traffic Light - Stop Sign Violations<br>
@@ -223,6 +292,8 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
     </tr>
 </table>
 
+<hr class="bottom">
+
 <div class="div-left">
 <textarea class="radar" id="text-radar" rows="11" cols="69"></textarea>
 <br>
@@ -237,7 +308,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </div>
 <br>
 <span class="date">*Only needed if using Radar<br>
-Last updated 06/03/2024 @ 10:55</span>
+Last updated 06/04/2024 @ 22:00</span>
 
 <script>
     // Check if the URL contains "#"
