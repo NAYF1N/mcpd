@@ -145,12 +145,12 @@ function clearForm() {
 </head>
 <body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()">
 
-<span class="header">Traffic Citation Template/Cheat Sheet</span><br>
+<span class="h1">Traffic Citation Template/Cheat Sheet</span><br>
 
 <table>
     <tr>
         <td class="table-form">
-            
+<span class="h2">Speed Information</span>
 <form autocomplete="off">
 Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
 Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
@@ -204,12 +204,13 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </select><br>
 <input class="reset" type="reset" value="Clear All Fields" onclick="clearForm()">
 </form>
+<span class="date">*Only needed if using Radar</span><br><br>
 
 
 <table>
 <tr>
 <td class="convert" colspan="3">
-<span class="bold">Convert Metric to 'Murican</span>
+<span class="h2">Convert Metric to 'Murican</span>
 </td>
 </tr>
 <tr>
@@ -230,6 +231,9 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 </table>           
         </td>
         <td class="table-bs">
+
+<span class="h2">Dynamic Results</span><br>
+
             
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding (regular/construction zone)<br><br>
 
@@ -248,10 +252,8 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
             
 
 
-<br><hr>
-
-
-
+<br><hr2>
+<span class="h2">Utah Code</span><br>
 
            <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration ... $50<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S304.html" target="_blank">41-6a-304</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> -- Traffic Light - Stop Sign Violations<br>
@@ -259,11 +261,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations ... $130<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel
-
-            </td>
-            
-            <td class="table-bs"><!--<a href="" target="_blank"></a>-->
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
@@ -271,8 +269,10 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment (Underglow)
 
-<br><hr>
-
+            </td>
+            
+            <td class="table-bs"><!--<a href="" target="_blank"></a>-->
+<span class="h2">More Utah Code</span><br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License ... $50 ($40 w/ proof)<br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Suspended/Revoked/Denied ... Court Mandatory
@@ -286,8 +286,16 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
            <br><br>
            
            **All violations involving accident add $30
-            
-            
+
+<br><hr2>
+
+<span class="h2">Helpful Links</span><br>
+<a href="https://moab.municipal.codes/Code" target="_blank">Moab Municipal Code</a><br>
+<a href="https://secure.utah.gov/warrants/index.html" target="_blank">Utah Warrants Search</a><br>
+<a href="https://vpic.nhtsa.dot.gov/decoder" target="_blank">NHTSA VIN Decoder</a><br>
+<a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
+<a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a>
+
             </td>
     </tr>
 </table>
@@ -307,8 +315,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 <button onclick="copyl()">Copy LiDAR</button>
 </div>
 <br>
-<span class="date">*Only needed if using Radar<br>
-Last updated 06/04/2024 @ 22:00</span>
+<span class="date">Last updated 06/30/2024 @ 08:00</span>
 
 <script>
     // Check if the URL contains "#"

@@ -12,8 +12,15 @@ body {
 }
 
 
-.header {
+.h1 {
 	font-size:30pt;
+	font-weight:bold;
+	color:#93e7fd;
+	text-shadow: 5px 5px 5px #000;
+}
+
+.h2 {
+	font-size:15pt;
 	font-weight:bold;
 	color:#93e7fd;
 	text-shadow: 5px 5px 5px #000;
@@ -21,7 +28,7 @@ body {
 
 
 a {
-   color:#93e7fd;/*f88*/
+   color:#00caff;/*93e7fd*/
 }
 
 a:hover {
@@ -95,7 +102,7 @@ a:hover {
 
 hr {
 	border:none;
-	border-top:3px solid #696969;
+	border-top:3pt dashed #555;
 	margin-top:15px;
 	margin-bottom:15px;
 	margin-right:25%;
@@ -104,9 +111,20 @@ hr {
 	float:left;
 }
 
+hr2 {
+	border:none;
+	border-top:3pt solid #555;
+	margin-top:15px;
+	margin-bottom:5px;
+	margin-right:25%;
+	margin-left:none;
+	width:75%;
+	float:left;
+}
+
 .bottom {
 	border:none;
-	border-top:3px solid #696969;
+	border-top:3px solid #555;
 	margin-top:15px;
 	margin-bottom:15px;
 	margin-left:10% !important;
