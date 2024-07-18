@@ -137,19 +137,22 @@ input {
 }
 
 input[type="text"]:invalid {
-    background-color:rgba(0,202,255,.5);
+   /*background-color:rgba(0,202,255,1);*/
+background-color:rgba(147,231,253,1);
+color:#FFF;
 }
 
 input[type="text"]:focus, input[type="text"]:valid {
-    background-color : #444; 
+    background-color:#333;
+color:#fff;
 }
 
 ::placeholder {
-    color:#fff;
+    color:#000;
 }
 
 input:focus::placeholder {
-    color:#ccc;
+    color:#CCC;
 }
 
 .location {
@@ -158,8 +161,8 @@ input:focus::placeholder {
 
 .reset {
     width:inherit !important;
-    background-color:rgba(0,202,255,.75);
-    color:#FFF;
+    background-color:rgba(147,231,253,.75);
+    color:#000;
 	border-radius:5px;
 	font-size:11pt;
 	padding:3px;
@@ -170,8 +173,8 @@ select {
 }
 
 input, select {
-    background-color:rgba(0,202,255,.5);
-    color:#ccc;
+    background-color:rgba(147,231,253,1);
+    color:#000;
     font-size:12pt;
     margin-bottom:8px;
     text-align:center;
