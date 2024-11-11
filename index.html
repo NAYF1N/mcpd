@@ -62,19 +62,19 @@ function calculateDifference() {
 
       // Display different text results based on the difference
       if (difference < 0) {
-        document.getElementById('result').innerHTML = 'The Charged speed is lower than MPH Zone.<br>Check your numbers!';
+        document.getElementById('result').innerHTML = '&#8224;The Charged speed is lower than MPH Zone.<br>Check your numbers!';
       } else if (difference >= 1 && difference <= 10) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="warning">1-10mph</span> above the posted limit.<br>The associated fine is <span class="warning">$130, or $180 in a construction zone</span>.';
+        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">1-10mph</span> above the posted limit.<br>The associated fine is <span class="warning">$130, or $180 in a construction zone</span>.';
       } else if (difference >= 11 && difference <= 15) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="warning">11-15mph</span> above the posted limit.<br>The associated fine is <span class="warning">$160, or $230 in a construction zone</span>.';
+        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">11-15mph</span> above the posted limit.<br>The associated fine is <span class="warning">$160, or $230 in a construction zone</span>.';
       } else if (difference >= 16 && difference <= 20) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="warning">16-20mph</span> above the posted limit.<br>The associated fine is <span class="warning">$210, or $330 in a construction zone</span>.';
+        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">16-20mph</span> above the posted limit.<br>The associated fine is <span class="warning">$210, or $330 in a construction zone</span>.';
       } else if (difference >= 21 && difference <= 25) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="warning">21-25mph</span> above the posted limit.<br>The associated fine is <span class="warning">$280, or $480 in a construction zone</span>.';
+        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">21-25mph</span> above the posted limit.<br>The associated fine is <span class="warning">$280, or $480 in a construction zone</span>.';
       } else if (difference >= 26 && difference <= 30) {
-        document.getElementById('result').innerHTML = 'The charged speed is between <span class="warning">26-30mph</span> above the posted limit.<br>The associated fine is <span class="warning">$380, or $680 in a construction zone</span>.';
+        document.getElementById('result').innerHTML = '&#8224;The charged speed is between <span class="warning">26-30mph</span> above the posted limit.<br>The associated fine is <span class="warning">$380, or $680 in a construction zone</span>.';
       } else if (difference >= 31) {
-        document.getElementById('result').innerHTML = 'The charged speed is <span class="warning">greater than 30mph</span> above the posted limit.<br><span class="warning">The driver is mandated to contact the court.</span>';
+        document.getElementById('result').innerHTML = '&#8224;The charged speed is <span class="warning">greater than 30mph</span> above the posted limit.<br><span class="warning">The driver is mandated to contact the court.</span>';
       } else {
         document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get<br>associated monetary fine.';
       }
@@ -179,9 +179,9 @@ Direction: <select id="direction" name="direction" onkeyup="update()" onclick="u
 </select><br>
 
 O/S: <select id="os" name="os" onkeyup="update()" onclick="update()">
-<option name="os" value="--">--</option>
-<option name="os" value="opposite">opposite</option>
-<option name="os" value="same">same</option>
+<option name="os" value="-- lane">--</option>
+<option name="os" value="opposite lane">opposite</option>
+<option name="os" value="same lane">same</option>
 </select><br>
 
 C/W: <select id="cw" name="cw" onkeyup="update()" onclick="update()">
@@ -259,13 +259,18 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration ... $50<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations ... Contact Court<br>
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html" target="_blank">41-6a-1604</a> - Head/Tail/Stop/Other Lights<br>
             <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment (Underglow)
+            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment<br>
+            <a href="https://le.utah.gov/xcode/Title72/Chapter6/72-6-S114.html" target="_blank">72-6-114</a> - Failure to Observe Traffic Barricade/Flagman
+
+
 
             </td>
             
             <td class="table-bs"><!--<a href="" target="_blank"></a>-->
 <span class="h2">More Utah Code</span><br>
+            <a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br><br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License ... $50 ($40 w/ proof)<br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
             <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Suspended/Revoked/Denied ... Court Mandatory
@@ -279,6 +284,16 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
            <br><br>
            
            **All violations involving accident add $30
+
+<br><hr2>
+
+<span class="h2">Domestic Violence</span><br>
+<a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
+<a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S2.1.html#:~:text=(c),or%20older%20who%3A" target="_blank">77-36-2.1</a> - Intimate Partner Definition<br>
+<a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S102.html?v=C78B-7-S102_2022050420220504#:~:text=(5),or%20older%20who%3A" target="_blank">78B-7-102</a> - Cohabitant Definition<br>
+<a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S114.html" target="_blank">76-5-114</a> - DV in Presence of a Child<br>
+<a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.1.html" target="_blank">77-36-1.1</a> - DV Charge Enhancements
+
 
 <br><hr2>
 
@@ -308,7 +323,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 <button onclick="copyl()">Copy LiDAR</button>
 </div>
 <br>
-<span class="date">Last updated 07/18/2024 @ 06:40</span>
+<span class="date">Last updated 11/10/2024 @ 18:50</span>
 
 <script>
     // Check if the URL contains "#"
