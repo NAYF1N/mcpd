@@ -147,8 +147,12 @@ function clearForm() {
 </head>
 <body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
 
-<span class="h1">Speeding Citation Template - Utah Code Reference</span><br>
 
+<div class="header">
+<span class="h1">Speeding Citation Template - Utah Code Reference</span>
+</div>
+
+<div class="content">
 <table>
     <tr>
         <td class="table-form">
@@ -316,16 +320,16 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <span class="h2">Maps</span><br>
 <a href="https://www.moabcity.gov/291/City-Maps" target="_blank">Moab City Maps</a>
 <ul>
-<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Map Viewer</a></li>
-<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning Map</a></li>
-<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain Map</a></li>
+<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=2546bdb636c047cfb015db25965060c6" target="_blank">Parcel Viewer</a></li>
+<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=4e661fc216e142efb370cedb8ce681aa" target="_blank">Zoning</a></li>
+<li><a href="https://cityofmoab.maps.arcgis.com/apps/webappviewer/index.html?id=7f6606f1e3354e2abf972b3b1c590138" target="_blank">Flood Plain</a></li>
 </ul>
 <a href="https://grandcountyutah.net/689/Maps" target="_blank">Grand County Maps</a>
 <ul>
-<li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Map Viewer</a></li>
+<li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
 <li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
 </ul>
-<a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" "target="_blank">UDOT Maps</a>
+<a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" "target="_blank">UDOT Maps (Mile markers)</a>
 <ul>
 <li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=f2ee88ece6b6473ca65edda6cc113ba2" "target="_blank">Physical Location of Reference Post</a></li>
 <li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=768b285ed14e40e5853f45963f2d137a" "target="_blank">Mile Point Linear Measure</a></li>
@@ -350,7 +354,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <button onclick="copyl()">Copy LiDAR</button>
 </div>
 <br>
-<span class="date">Last updated 05/21/2025 @ 20:30</span>
+<span class="date">Last updated 05/22/2025 @ 05:50</span>
 
 <script>
     // Check if the URL contains "#"
@@ -386,19 +390,17 @@ const dropdowns = document.querySelectorAll('.citeDropdown');
 dropdowns.forEach(dropdown => {
     dropdown.addEventListener('change', function() {
         if (this.value === '--') {
-            this.style.backgroundColor = 'rgba(147,231,253,1)'; // Change to red if -- is selected
+            this.style.backgroundColor = 'rgba(147,231,253,1)';
             this.style.color = '#000';
         } else {
-            this.style.backgroundColor = '#333'; // Change to green for any other selection
+            this.style.backgroundColor = '#333';
             this.style.color = '#FFF';
         }
     });
 });
 
-
-
-
  
 </script>
+</div>
 </body>
 </html>
