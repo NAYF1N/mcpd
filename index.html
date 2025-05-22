@@ -18,6 +18,8 @@
 <script>
 
 
+
+
 function heightWeight() {
             // Get the values from the text boxes
             var meters = parseFloat(document.getElementById("heightM").value) || 0;
@@ -143,9 +145,9 @@ function clearForm() {
 
 
 </head>
-<body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()">
+<body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
 
-<span class="h1">Traffic Citation Template/Cheat Sheet</span><br>
+<span class="h1">Speeding Citation Template - Utah Code Reference</span><br>
 
 <table>
     <tr>
@@ -158,46 +160,46 @@ Confirmed: <input required type="text" placeholder="--" id="confirmed" name="con
 &#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
 <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
 
-Direction: <select id="direction" name="direction" onkeyup="update()" onclick="update()">
-<option name="direction" value="">--</option>
+Direction: <select class="citeDropdown" id="direction" name="direction" onkeyup="update()" onclick="update()">
+<option name="direction" value="--">--</option>
 <option name="direction" value="north at ">north</option>
 <option name="direction" value="south at ">south</option>
 <option name="direction" value="east at ">east</option>
 <option name="direction" value="west at ">west</option>
 </select><br>		    
 		    
-*M/S: <select id="ms" name="ms" onkeyup="update()" onclick="update()">
+*M/S: <select class="citeDropdown" id="ms" name="ms" onkeyup="update()" onclick="update()">
 <option name="ms" value="--">--</option>
 <option name="ms" value="moving">moving</option>
 <option name="ms" value="stationary">stationary</option>
 </select><br>
 
-*F/R: <select id="fr" name="fr" onkeyup="update()" onclick="update()">
+*F/R: <select class="citeDropdown" id="fr" name="fr" onkeyup="update()" onclick="update()">
 <option name="fr" value="--">--</option>
 <option name="fr" value="forward facing">forward</option>
 <option name="fr" value="rear facing">rear</option>
 </select><br>
 
-O/S: <select id="os" name="os" onkeyup="update()" onclick="update()">
-<option name="os" value="-- lane">--</option>
+O/S: <select class="citeDropdown" id="os" name="os" onkeyup="update()" onclick="update()">
+<option name="os" value="--">--</option>
 <option name="os" value="opposite lane">opposite</option>
 <option name="os" value="same lane">same</option>
 </select><br>
 
-C/W: <select id="cw" name="cw" onkeyup="update()" onclick="update()">
+C/W: <select class="citeDropdown" id="cw" name="cw" onkeyup="update()" onclick="update()">
 <option name="cw" value="--">--</option>
 <option name="cw" value="citation">citation</option>
 <option name="cw" value="written warning">warning</option>
 </select><br>
 
 Aware of: <input id="check-aware" type="checkbox" onclick="update()"><br>
-Speed: <select id="aspeed" name="aspeed" onkeyup="update()" onclick="update()">
+Speed: <select class="citeDropdown" id="aspeed" name="aspeed" onkeyup="update()" onclick="update()">
 <option name="aspeed" value="--">--</option>
 <option name="aspeed" value="were aware">aware</option>
 <option name="aspeed" value="were not aware">not aware</option>
 </select><br>
 
-Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="update()">
+Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="update()" onclick="update()">
 <option name="alimit" value="--">--</option>
 <option name="alimit" value="were aware">aware</option>
 <option name="alimit" value="were not aware">not aware</option>
@@ -292,7 +294,7 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
 <span class="h2">Domestic Violence</span><br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S2.1.html#:~:text=(c),or%20older%20who%3A" target="_blank">77-36-2.1</a> - Intimate Partner Definition<br>
-<a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S102.html?v=C78B-7-S102_2022050420220504#:~:text=(5),or%20older%20who%3A" target="_blank">78B-7-102</a> - Cohabitant Definition<br>
+<a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S102.html#:~:text=(7),or%20older%20who%3A" target="_blank">78B-7-102</a> - Cohabitant Definition<br>
 <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S114.html" target="_blank">76-5-114</a> - DV in Presence of a Child<br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.1.html" target="_blank">77-36-1.1</a> - DV Charge Enhancements<br>
 <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S108.html#:~:text=Violation%20of%20protective%20order.,-(1)&text=Terms%20defined%20in%20Section%2076,101.5%20apply%20to%20this%20section.&text=intentionally%20or%20knowingly%20violates%20that,when%20the%20order%20was%20issued." target="_blank">76-5-108</a> - Violation of Protective Order<br>
@@ -375,6 +377,27 @@ Speed limit: <select id="alimit" name="alimit" onkeyup="update()" onclick="updat
         document.body.appendChild(script);
       }
     }
+
+
+
+
+const dropdowns = document.querySelectorAll('.citeDropdown');
+
+dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('change', function() {
+        if (this.value === '--') {
+            this.style.backgroundColor = 'rgba(147,231,253,1)'; // Change to red if -- is selected
+            this.style.color = '#000';
+        } else {
+            this.style.backgroundColor = '#333'; // Change to green for any other selection
+            this.style.color = '#FFF';
+        }
+    });
+});
+
+
+
+
  
 </script>
 </body>
