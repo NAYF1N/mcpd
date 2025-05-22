@@ -40,7 +40,7 @@ a:hover {
 	font-weight: bold !important;
 }
 	
-/*.table-form, .table-bs {
+/*.table-form, .table-bs, td {
     border:1px solid orange;
 }*/
 
@@ -120,6 +120,11 @@ hr2 {
 	margin-left:none;
 	width:75%;
 	float:left;
+}
+
+ul {
+	margin:0%;
+	padding0%;
 }
 
 .bottom {
