@@ -145,12 +145,11 @@ hr2 {
 
 ul {
 	margin:0%;
-	padding0%;
 }
 
 .bottom {
 	border:none;
-	border-top:3px solid #555;
+	border-top:3pt solid #00caff;
 	margin-top:15px;
 	margin-bottom:15px;
 	margin-left:10% !important;

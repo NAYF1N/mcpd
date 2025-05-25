@@ -13,46 +13,41 @@
 
 <link rel="stylesheet" href="style.css">
 
-
 <!--https://www.shecodes.io/athena#question-422123-->
 <script>
 
-
-
-
 function heightWeight() {
-            // Get the values from the text boxes
-            var meters = parseFloat(document.getElementById("heightM").value) || 0;
-            var centimeters = parseFloat(document.getElementById("heightCm").value) || 0;
+// Get the values from the text boxes
+var meters = parseFloat(document.getElementById("heightM").value) || 0;
+var centimeters = parseFloat(document.getElementById("heightCm").value) || 0;
 
-            // Convert meters to inches
-            var totalInchesMeters = meters * 39.37;
+// Convert meters to inches
+var totalInchesMeters = meters * 39.37;
 
-            // Convert inches to feet and inches (part for meters)
-            var feetMeters = Math.floor(totalInchesMeters / 12);
-            var inchesMeters = Math.round(totalInchesMeters % 12);
+// Convert inches to feet and inches (part for meters)
+var feetMeters = Math.floor(totalInchesMeters / 12);
+var inchesMeters = Math.round(totalInchesMeters % 12);
 
-            // Convert centimeters to inches
-            var inchesCentimeters = centimeters / 2.54;
+// Convert centimeters to inches
+var inchesCentimeters = centimeters / 2.54;
 
-            // Convert inches to feet and inches (part for centimeters)
-            var feetCentimeters = Math.floor(inchesCentimeters / 12);
-            var inchesCentimetersRemainder = Math.round(inchesCentimeters % 12);
+// Convert inches to feet and inches (part for centimeters)
+var feetCentimeters = Math.floor(inchesCentimeters / 12);
+var inchesCentimetersRemainder = Math.round(inchesCentimeters % 12);
 
-            // Display the results
-            document.getElementById("heightFt-M").innerHTML = isNaN(feetMeters) ? "" : Math.round(feetMeters) + "'";
-            document.getElementById("heightIn-M").innerHTML = isNaN(inchesMeters) ? "" : Math.round(inchesMeters) + '"';
-            document.getElementById("heightFt-Cm").innerHTML = isNaN(feetCentimeters) ? "" : Math.round(feetCentimeters) + "'";
-            document.getElementById("heightIn-Cm").innerHTML = isNaN(inchesCentimetersRemainder) ? "" : Math.round(inchesCentimetersRemainder) + '"';
+// Display the results
+document.getElementById("heightFt-M").innerHTML = isNaN(feetMeters) ? "" : Math.round(feetMeters) + "'";
+document.getElementById("heightIn-M").innerHTML = isNaN(inchesMeters) ? "" : Math.round(inchesMeters) + '"';
+document.getElementById("heightFt-Cm").innerHTML = isNaN(feetCentimeters) ? "" : Math.round(feetCentimeters) + "'";
+document.getElementById("heightIn-Cm").innerHTML = isNaN(inchesCentimetersRemainder) ? "" : Math.round(inchesCentimetersRemainder) + '"';
 
-            // Convert kilograms to pounds
-            var kilograms = parseFloat(document.getElementById("weightKg").value) || 0;
-            var pounds = Math.round(kilograms * 2.205);
+// Convert kilograms to pounds
+var kilograms = parseFloat(document.getElementById("weightKg").value) || 0;
+var pounds = Math.round(kilograms * 2.205);
 
-            // Display the result
-            document.getElementById("weightLbs").innerHTML = isNaN(pounds) ? "" : Math.round(pounds) + "lbs";
+// Display the result
+document.getElementById("weightLbs").innerHTML = isNaN(pounds) ? "" : Math.round(pounds) + "lbs";
         }
-
 
 function calculateDifference() {
       // Get the values from the text boxes
@@ -130,9 +125,9 @@ function copyl() {
 }
 
 function clearForm() {
-    update();
-    update();
-    calculateDifference();
+  update();
+  update();
+  calculateDifference();
 	confirmedDifference();
 	doubleSpeed();
 }
@@ -154,13 +149,13 @@ function clearForm() {
 
 <div class="content">
 <table>
-    <tr>
-        <td class="table-form">
+<tr>
+<td class="table-form">
 <span class="h2">Speed Information</span>
 <form autocomplete="off">
 Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
 Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
-&#8224;MPH Zone:<input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); confirmedDifference()" onblur="doubleSpeed()"><br>
+&#8224;MPH Zone: <input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); confirmedDifference()" onblur="doubleSpeed()"><br>
 &#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
 <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
 
@@ -235,8 +230,8 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <td class="convert"><span id="weightLbs"></span></td>
 </tr>
 </table>           
-        </td>
-        <td class="table-bs">
+</td>
+<td class="table-bs">
 
 <span class="h2">Dynamic Results</span><br>
 
@@ -244,54 +239,41 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <!--<span id="output" class="bold-ds"></span><br>-->
 <div id="result"></div>
 
-
-            
-
-
 <hr2></hr2>
+
 <span class="h2">Utah Code</span><br>
 <a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br><br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S601.html" target="_blank">41-6a-601</a> - Speeding<br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S604.html" target="_blank">41-6a-604</a> - Speeding in School Zone<br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1302.html" target="_blank">41-6a-1302(2)(b)</a> - Passing School Bus w/ flashing red<br><br>
            
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> -- Traffic Light - Stop Sign Violations<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S526.html" target="_blank">41-6a-526</a> - Open Container ... $110<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations ... $130<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> -- Yield to pedestrians - Pedestrians must yield<br>
-            --<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S305.html" target="_blank">41-6a-305</a> - <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S902.html" target="_blank">902</a> -- Traffic Light - Stop Sign Violations<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S526.html" target="_blank">41-6a-526</a> - Open Container ... $110<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S528.html" target="_blank">41-6a-528</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1715.html" target="_blank">1715</a> - Reckless Driving; Careless Driving<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S606.html" target="_blank">41-6a-606</a> - Exhibition of Speed<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S704.html" target="_blank">41-6a-704</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S705.html" target="_blank">705</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S706.html" target="_blank">706</a> - All Passing Violations ... $130<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S710.html" target="_blank">41-6a-710</a> - Improper Lane Travel<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">41-6a-801</a>; <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S801.html" target="_blank">802</a> - Right/Left Turns; U-Turns<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S904.html" target="_blank">41-6a-904</a> - Failure to Yield to Emergency Vehicle ... $160<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1002.html" target="_blank">41-6a-1002</a>, <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1003.html" target="_blank">1003</a> -- Yield to pedestrians - Pedestrians must yield<br>
+--<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-P10.html" target="_blank">All Pedestrian Laws</a><br>
 <a href="https://le.utah.gov/xcode/Title41/Chapter1a/41-1a-S1303.html" target="_blank">41-1a-1303</a> - No/Expired Registration ... $50<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations ... Contact Court<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html" target="_blank">41-6a-1604</a> - Head/Tail/Stop/Other Lights<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
-            <a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unnaproved Equipment<br>
-            <a href="https://le.utah.gov/xcode/Title72/Chapter6/72-6-S114.html" target="_blank">72-6-114</a> - Failure to Observe Traffic Barricade/Flagman<br><br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1401.html" target="_blank">41-6a-1401</a> - Parking Violations ... Contact Court<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6a/41-6a-S1604.html" target="_blank">41-6a-1604</a> - Head/Tail/Stop/Other Lights<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1616.html" target="_blank">41-6a-1616</a> - Red/Blue Forward Facing and Flashing Lights<br>
+<a href="https://le.utah.gov/xcode/Title41/Chapter6A/41-6a-S1618.html" target="_blank">41-6a-1618</a> - Unapproved Equipment<br>
+<a href="https://le.utah.gov/xcode/Title72/Chapter6/72-6-S114.html" target="_blank">72-6-114</a> - Failure to Observe Traffic Barricade/Flagman<br><br>
+</td>
 
-
-
-
-
-
-
-            </td>
-            
-            <td class="table-bs"><!--<a href="" target="_blank"></a>-->
+<td class="table-bs"><!--<a href="" target="_blank"></a>-->
 <span class="h2">Drugs & Driver's License</span><br>
-            <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a Controlled Substance<br>
-           <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=It%20is%20unlawful%20for%20any%20person%20to%20deliver%2C%20possess%20with,%2C%20analyze%2C%20pack%2C%20repack%2C" target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
-           <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V<br><br>
+<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a Controlled Substance<br>
+<a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=It%20is%20unlawful%20for%20any%20person%20to%20deliver%2C%20possess%20with,%2C%20analyze%2C%20pack%2C%20repack%2C" target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
+<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S4.html" target="_blank">58-37-4</a> - Drug Schedules I-V<br><br>
 
-
-            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License ... $50 ($40 w/ proof)<br>
-            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
-            <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied ... Court Mandatory
-
-
+<a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202(1)(a)</a> - No Valid/Expired License ... $50 ($40 w/ proof)<br>
+<a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
+<a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied ... Court Mandatory
 
 <br><hr2></hr2>
 
@@ -303,7 +285,6 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.1.html" target="_blank">77-36-1.1</a> - DV Charge Enhancements<br>
 <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S108.html#:~:text=Violation%20of%20protective%20order.,-(1)&text=Terms%20defined%20in%20Section%2076,101.5%20apply%20to%20this%20section.&text=intentionally%20or%20knowingly%20violates%20that,when%20the%20order%20was%20issued." target="_blank">76-5-108</a> - Violation of Protective Order<br>
 <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S806.html#:~:text=(b),for%20a%20misdemeanor." target="_blank">78B-7-806</a> - Violation of JRA
-
 
 <br><hr2></hr2>
 
@@ -329,14 +310,14 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <li><a href="https://grandcountyutah.net/790/Parcel-Viewer-Map" target="_blank">Parcel Viewer</a></li>
 <li><a href="https://grandcountyutah.net/1250/Landownership-Map" target="_blank">Land Ownership</a></li>
 </ul>
-<a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" "target="_blank">UDOT Maps (Mile markers)</a>
+<a href="https://www.arcgis.com/home/item.html?id=6e2fdb123fed426cb839195f1b37e9f5" target="_blank">UDOT Maps (Mile markers)</a>
 <ul>
-<li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=f2ee88ece6b6473ca65edda6cc113ba2" "target="_blank">Physical Location of Reference Post</a></li>
-<li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=768b285ed14e40e5853f45963f2d137a" "target="_blank">Mile Point Linear Measure</a></li>
+<li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=f2ee88ece6b6473ca65edda6cc113ba2" target="_blank">Physical Location of Reference Post</a></li>
+<li><a href="https://www.arcgis.com/apps/mapviewer/index.html?layers=768b285ed14e40e5853f45963f2d137a" target="_blank">Mile Point Linear Measure</a></li>
 </ul>
 
-            </td>
-    </tr>
+</td>
+</tr>
 </table>
 
 <hr class="bottom"></hr>
