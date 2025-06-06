@@ -117,11 +117,13 @@ function copyr() {
   let textarea = document.getElementById("text-radar");
   textarea.select();
   document.execCommand("copy");
+  textarea.setSelectionRange(0, 0);
 }
 function copyl() {
   let textarea = document.getElementById("text-lidar");
   textarea.select();
   document.execCommand("copy");
+  textarea.setSelectionRange(0, 0);
 }
 
 function clearForm() {
@@ -140,7 +142,7 @@ function clearForm() {
 
 
 </head>
-<body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
+<body onload="update(); calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight()" onmouseenter="calculateDifference(); doubleSpeed(); confirmedDifference(); heightWeight(); cDropdown()">
 
 
 <div class="header">
@@ -154,9 +156,16 @@ function clearForm() {
 <span class="h2">Speed Information</span>
 <form autocomplete="off">
 Observed: <input required type="text" placeholder="--" id="observed" name="observed" onkeyup="update()"><br>
-Confirmed: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
+Confirmed/Locked: <input required type="text" placeholder="--" id="confirmed" name="confirmed" onkeyup="update()"><br>
 &#8224;MPH Zone: <input required type="text" placeholder="--" id="zone" name="zone" onkeyup="update(); calculateDifference(); confirmedDifference()" onblur="doubleSpeed()"><br>
 &#8224;Charged: <input required type="text" placeholder="--" id="charged" name="charged" onkeyup="update(); calculateDifference(); doubleSpeed()"><br>
+<hr2></hr2>
+*Radar Locked? <input id="check-locked" class="showSecond" type="checkbox" onclick="update()"><br>
+*Moving when Locked? <input id="check-movingLocked" class="showThird" type="checkbox" onclick="update()"><br>
+*Moving Patrol Speed: <input required type="text" placeholder="--" id="patrolSpeed" name="patrolSpeed" onkeyup="update()"><br>
+
+<hr2></hr2><br>
+
 <input required type="text" class="location" placeholder="Location" id="locate" name="locate" onkeyup="update()"><br>
 
 Direction: <select class="citeDropdown" id="direction" name="direction" onkeyup="update()" onclick="update()">
@@ -190,8 +199,8 @@ C/W: <select class="citeDropdown" id="cw" name="cw" onkeyup="update()" onclick="
 <option name="cw" value="citation">citation</option>
 <option name="cw" value="written warning">warning</option>
 </select><br>
-
-Aware of: <input id="check-aware" type="checkbox" onclick="update()"><br>
+<hr2></hr2>
+Aware of: <input id="check-aware" class="showFourth" type="checkbox" onclick="update()"><br>
 Speed: <select class="citeDropdown" id="aspeed" name="aspeed" onkeyup="update()" onclick="update()">
 <option name="aspeed" value="--">--</option>
 <option name="aspeed" value="were aware">aware</option>
@@ -203,9 +212,9 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <option name="alimit" value="were aware">aware</option>
 <option name="alimit" value="were not aware">not aware</option>
 </select><br>
-<input class="reset" type="reset" value="Clear All Fields" onclick="clearForm()">
+<input class="button" type="reset" value="Clear All Fields" onclick="clearForm()">
 </form>
-<span class="date">*Only needed if using Radar</span><br><br>
+<span class="small">*Radar Only</span><br><br>
 
 
 <table>
@@ -239,7 +248,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <!--<span id="output" class="bold-ds"></span><br>-->
 <div id="result"></div>
 
-<hr2></hr2>
+<hr></hr>
 
 <span class="h2">Utah Code</span><br>
 <a href="https://le.utah.gov/xcode/Title76/Chapter2/76-2-S103.html" target="_blank">76-2-103</a> - General Culpability Definitions<br><br>
@@ -277,7 +286,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S202.html" target="_blank">53-3-202</a> - Never Obtained Driver's License ... Court Mandatory<br>
 <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied ... Court Mandatory
 
-<br><hr2></hr2>
+<br><hr></hr>
 
 <span class="h2">Domestic Violence</span><br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
@@ -288,7 +297,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <a href="https://le.utah.gov/xcode/Title76/Chapter5/76-5-S108.html#:~:text=Violation%20of%20protective%20order.,-(1)&text=Terms%20defined%20in%20Section%2076,101.5%20apply%20to%20this%20section.&text=intentionally%20or%20knowingly%20violates%20that,when%20the%20order%20was%20issued." target="_blank">76-5-108</a> - Violation of Protective Order<br>
 <a href="https://le.utah.gov/xcode/Title78B/Chapter7/78B-7-S806.html#:~:text=(b),for%20a%20misdemeanor." target="_blank">78B-7-806</a> - Violation of JRA
 
-<br><hr2></hr2>
+<br><hr></hr>
 
 <span class="h2">Helpful Links</span><br>
 <a href="2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><br>
@@ -298,7 +307,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
 <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a>
 
-<br><hr2></hr2>
+<br><hr></hr>
 
 <span class="h2">Maps</span><br>
 <a href="https://www.moabcity.gov/291/City-Maps" target="_blank">Moab City Maps</a>
@@ -325,19 +334,26 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <hr class="bottom"></hr>
 
 <div class="div-left">
-<textarea class="radar" id="text-radar" rows="11" cols="69"></textarea>
+    <textarea class="radar1" style="display:none;"></textarea>
+    <textarea class="radar2" style="display:none;"></textarea>
+    <textarea class="radar3" style="display:none;"></textarea>
+    <textarea class="radar4" style="display:none;"></textarea>
+<textarea class="radar" id="text-radar" rows="11" cols="69" readonly></textarea>
+<div id="r-copied">Radar Copied to Clipboard</div>
 <br>
-<button onclick="copyr()">Copy Radar</button>
+<button class="button" onclick="copyr()" id="r-button">Copy Radar</button>
 </div>
 
 
 <div class="div-right">
-<textarea class="lidar" id="text-lidar" rows="11" cols="69"></textarea>
+    <textarea class="lidar1" style="display:none;"></textarea>
+    <textarea class="lidar2" style="display:none;"></textarea>
+    <textarea class="lidar3" style="display:none;"></textarea>
+<textarea class="lidar" id="text-lidar" rows="11" cols="69" readonly></textarea>
+<div id="l-copied">LiDAR Copied to Clipboard</div>
 <br>
-<button onclick="copyl()">Copy LiDAR</button>
+<button class="button" onclick="copyl()" id="l-button">Copy LiDAR</button>
 </div>
-<br>
-<span class="date">Last updated 06/02/2025 @ 04:45</span>
 
 <script>
     // Check if the URL contains "#"
@@ -368,7 +384,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 
 
 
-const dropdowns = document.querySelectorAll('.citeDropdown');
+const dropdowns = document.querySelectorAll('.citeDropdown, .showThird');
 
 dropdowns.forEach(dropdown => {
     dropdown.addEventListener('change', function() {
@@ -382,8 +398,42 @@ dropdowns.forEach(dropdown => {
     });
 });
 
- 
+        document.getElementById("r-button").addEventListener("click", function() {
+            const message = document.getElementById("r-copied");
+            message.style.display = "block"; // Show the message
+            setTimeout(function() {
+                message.style.opacity = 1; // Fade in
+            }, 10); // Small timeout to ensure the display change is registered
+
+            setTimeout(function() {
+                message.style.opacity = 0; // Fade out
+            }, 5000); // Keep it visible for 3 seconds
+            setTimeout(function() {
+                message.style.display = "none"; // Hide the message after fade out
+            }, 5500); // Hide it after fade out is complete
+        });
+
+
+        document.getElementById("l-button").addEventListener("click", function() {
+            const message = document.getElementById("l-copied");
+            message.style.display = "block"; // Show the message
+            setTimeout(function() {
+                message.style.opacity = 1; // Fade in
+            }, 10); // Small timeout to ensure the display change is registered
+
+            setTimeout(function() {
+                message.style.opacity = 0; // Fade out
+            }, 5000); // Keep it visible for 3 seconds
+            setTimeout(function() {
+                message.style.display = "none"; // Hide the message after fade out
+            }, 5500); // Hide it after fade out is complete
+        });
+
 </script>
+</div>
+
+<div class="footer">
+<span class="small">Last updated 06/06/2025 @ 05:55</span>
 </div>
 </body>
 </html>

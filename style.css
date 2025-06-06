@@ -9,6 +9,10 @@ body {
 	background-attachment:fixed;
 	background-position:center;
 	background-repeat:no-repeat;
+	background-size:30%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 
@@ -28,22 +32,33 @@ body {
 
 
 .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 2px;
-            text-align: center;
-background-color:rgba(20,20,20,1.0);
-box-shadow: 0 12px 10px rgba(20,20,20,1); /* Blurred shadow effect */
-           
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 2px;
+	text-align: center;
+	background-color:rgba(20,20,20,1.0);
+	box-shadow: 0 12px 10px rgba(20,20,20,1); /* Blurred shadow effect */  
+}
 
-        }
-
-
+.footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-bottom:10px;
+	text-align:center;
+	vertical-align:middle;
+	color:#00caff;
+	text-shadow: 5px 5px 5px #000;
+	background-color:rgba(20,20,20,1.0);
+	box-shadow: 0 -12px 10px rgba(20,20,20,1); /* Blurred shadow effect */
+}
 
 .content {
             margin-top: 65px; /* Adjust according to the height of the header */
+			margin-bottom:45px;
 }
 
 
@@ -114,7 +129,7 @@ a:hover {
 	font-size:12pt;
 }
 
-.date {
+.small {
 	font-size:10pt;
 	width:100%;
 	margin-top:10px;
@@ -123,24 +138,24 @@ a:hover {
 
 hr {
 	border:none;
-	border-top:3pt dashed #555;
+	border-top:3pt solid #FF6B00;
 	margin-top:15px;
-	margin-bottom:15px;
+	margin-bottom:5px;
 	margin-right:25%;
 	margin-left:none;
-	width:75%;
+	width:85%;
 	float:left;
 }
 
 hr2 {
 	border:none;
-	border-top:3pt solid #555;
-	margin-top:15px;
+	border-top:2pt dashed #555;
+	margin-top:5px;
 	margin-bottom:5px;
-	margin-right:25%;
-	margin-left:none;
-	width:75%;
-	float:left;
+	margin-left:25%;
+	margin-right:none;
+	width:85%;
+	float:right;
 }
 
 ul {
@@ -159,7 +174,9 @@ ul {
 	
 input {
     width:45px !important;
+	border-radius:5px;
 }
+
 
 input[type="text"]:invalid {
    /*background-color:rgba(0,202,255,1);*/
@@ -184,13 +201,25 @@ input:focus::placeholder {
 	width:200px !important;
 }
 
-.reset {
+.button {
     width:inherit !important;
-    background-color:rgba(147,231,253,.75);
-    color:#000;
+    color:#FFF;
+    background-color:#000;
+	border:2px solid #00caff !important;
 	border-radius:5px;
 	font-size:11pt;
-	padding:3px;
+	padding:5px;
+	margin-top:10px
+}
+input:hover, select:hover {
+	border:2px solid #FF6B00;
+}
+
+.button:hover {
+	color:#FF6B00 !important;
+}
+.button:focus {
+	border-color:#FF6B00 !important;
 }
 
 select {
@@ -203,6 +232,8 @@ input, select {
     font-size:12pt;
     margin-bottom:8px;
     text-align:center;
+	border:2px solid #333;
+	border-radius:5px;
 }
 
 textarea {
@@ -211,4 +242,24 @@ textarea {
     font-family:Calibri;
 	width:69%;
 	height:30%;
+}
+
+        #copy-container {
+            display: flex;
+        }
+
+#r-copied, #l-copied {
+	display: none; /* Start hidden */
+    position:fixed;
+	font-weight: bold;
+	padding:5px;
+	border-radius:5px;
+	background-color:#000;
+	border:2px solid #FF6B00;
+    justify-content: center;
+    align-items: center;
+    top:2%;
+    left:5%;
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 0.5s; /* Effect for fading in and out */
 }
