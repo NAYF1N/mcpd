@@ -216,10 +216,10 @@ input:hover, select:hover {
 }
 
 .button:hover {
-	color:#FF6B00 !important;
+	border-color:#FFF !important;
 }
 .button:focus {
-	border-color:#FF6B00 !important;
+	border-color:#93e7fd !important;
 }
 
 select {
@@ -238,10 +238,16 @@ input, select {
 
 textarea {
     background-color:rgba(69,69,69,0.75);
-    color:#fff;
+	border:2px solid #93e7fd;
+	border-radius:5px;
+	padding:5px;
+    color:#FFF;
     font-family:Calibri;
 	width:69%;
 	height:30%;
+}
+textarea:focus {
+	border:2px solid #93e7fd !important;
 }
 
         #copy-container {
@@ -254,8 +260,8 @@ textarea {
 	font-weight: bold;
 	padding:5px;
 	border-radius:5px;
-	background-color:#000;
-	border:2px solid #FF6B00;
+	background-color:#FF6969;
+	border:2px solid #FFF;
     justify-content: center;
     align-items: center;
     top:2%;
