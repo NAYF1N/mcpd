@@ -73,7 +73,7 @@ function calculateDifference() {
       } else if (difference >= 31) {
         document.getElementById('result').innerHTML = '&#8224;The charged speed is <span class="warning">greater than 30mph</span> above the posted limit.<br><span class="warning">The driver is mandated to contact the court</span>.';
       } else {
-        document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get<br>associated monetary fine.';
+        document.getElementById('result').innerHTML = '&#8224;Enter data in "MPH Zone" and "Charged" to get associated monetary fine.';
       }
 }
 
@@ -248,7 +248,6 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <span id="obsdiff"></span><br><br>
 <!--<span id="output" class="bold-ds"></span><br>-->
 <div id="result"></div>
-
 <hr class="hr1"></hr>
 
 <span class="h2">Traffic Codes</span><br>
@@ -284,7 +283,7 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <span class="h2">Drugs & Driver's License</span><br>
 <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html" target="_blank">58-37-8</a> - Possession of a <a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(f),drug%20or%20substance%3A" target="_blank">Controlled Substance</a><br>
 <ul><li><a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S8.html#:~:text=(2).-,(d),4.2%2C%20or%20marijuana%2C%20is%20guilty%20of%20a%20class%20B%20misdemeanor.,-(ii)" target="_blank">Marijuana</a> (<a href="https://le.utah.gov/xcode/Title58/Chapter37/58-37-S2.html?v=C58-37-S2_2025050720250507#:~:text=(aa),or%20not%2C%20including%3A" target="_blank">Defined</a>)</li>
-<li>Medical Cannabis Flow Charts -- <a href="PDFs/UMCFlowChart-Res.pdf" target="_blank">Utah Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a></li>
+<li>Medical Cannabis Flow Charts -- <a href="PDFs/UMCFlowChart-Res.pdf" target="_blank">Residents</a> - <a href="PDFs/UMCFlowChart-NonRes.pdf" target="_blank">Non-Residents</a><span class="info">PDFs</span></li>
 </ul>
 
 <a href="https://le.utah.gov/xcode/Title58/Chapter37a/58-37a-S5.html#:~:text=(b),1)(a)%20is%20guilty%20of%20a%20class%20B%20misdemeanor." target="_blank">58-37a-5</a> - Possession of Paraphernalia<br>
@@ -296,7 +295,15 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <a href="https://le.utah.gov/xcode/Title53/Chapter3/53-3-S227.html" target="_blank">53-3-227</a> - Driving on Susp/Revoked/Denied<span class="fine">Court Mandatory</span>
 </td>
 
-<td class="table-bs"><!--<a href="" target="_blank"></a>-->
+
+
+
+<!--     RIGHT COLUMN     -->
+
+
+
+
+<td class="table-bs">
 
 <span class="h2">Domestic Violence</span><br>
 <a href="https://le.utah.gov/xcode/Title77/Chapter36/77-36-S1.html#:~:text=(b),cohabitant%20against%20another%3A" target="_blank">77-36-1</a> - Qualifying Domestic Violence Offenses<br>
@@ -312,13 +319,17 @@ Speed limit: <select class="citeDropdown" id="alimit" name="alimit" onkeyup="upd
 <span class="h2">Helpful Links</span><br>
 <a href="PDFs/2025UFS.pdf" target="_blank">2025 Uniform Fine Schedule</a><span class="fine">All Violation Penalties</span><span class="info">PDF</span><br>
 <a href="https://app.smartsheet.com/b/form/c591ca12e8204bf08ed451cf3bc3bc94" target="_blank">Warrant Threat Assessment</a><br>
-<a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><br>
+<a href="https://drive.google.com/drive/folders/1P5TToL6poxfc_Ud0tw0Ip3qYtWS1aqIs" target="_blank">Consent to Enter/Trespass</a><span class="info">&#128274;</span><br>
+<a href="https://drive.google.com/drive/folders/1jB92isrtJJxqAWMktW0BPSYIH27Dbyxc" target="_blank">Watch Command Logs</a><span class="info">&#128274;</span><br>
 <a href="https://moab.municipal.codes/Code" target="_blank">Moab Municipal Code</a><br>
-<a href="https://secure.utah.gov/warrants/index.html" target="_blank">Utah Warrants Search</a><br>
+<a href="https://warrants.utah.gov/" target="_blank">Utah Warrants Search</a><br>
 <a href="https://legacy.utcourts.gov/cal/reports.php" target="_blank">Utah Court Calendars</a><br>
 <a href="https://vpic.nhtsa.dot.gov/decoder" target="_blank">NHTSA VIN Decoder</a><br>
 <a href="https://dld.utah.gov/utah-point-system/" target="_blank">Utah Points System</a><br>
 <a href="https://safer.fmcsa.dot.gov/CompanySnapshot.aspx" target="_blank">FMCSA Search</a><br>
+<a href="https://drive.google.com/drive/folders/1_BRAWAdTM_wp9o1FAAttd7FbBWO2-qYO" target="_blank">MCPD Forms</a><span class="info">&#128274;</span><br><br>
+
+<span class="info" style="margin-left:0px !important;">&#128274; Access via Google required</span><br>
 
 <hr class="hr1"></hr>
 
@@ -417,11 +428,12 @@ const dropdowns = document.querySelectorAll('.citeDropdown, .showThird');
 dropdowns.forEach(dropdown => {
     dropdown.addEventListener('change', function() {
         if (this.value === '--') {
-            this.style.backgroundColor = 'rgba(147,231,253,1)';
-            this.style.color = '#000';
+            this.style.backgroundColor = '#000';
+            this.style.color = '#FFF';
         } else {
             this.style.backgroundColor = '#333';
             this.style.color = '#FFF';
+            this.style.borderColor = '#00caff';
         }
     });
 });
@@ -461,7 +473,7 @@ dropdowns.forEach(dropdown => {
 </div>
 
 <div class="footer">
-<span class="small">Last updated 08/27/2025 @ 17:30</span>
+<span class="small">Last updated 09/19/2025 @ 04:10</span>
 </div>
 </body>
 </html>
